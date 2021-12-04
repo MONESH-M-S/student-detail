@@ -1,0 +1,28 @@
+nav {
+  margin: 55px auto;
+}
+.main {
+  .logo {
+    display: flex;
+    justify-content: space-between;
+    margin: auto 340px;
+
+    img {
+      height: 80px;
+    }
+
+    .title {
+      margin-top: -33px;
+      text-align: center;
+
+      h1 {
+        font-size: 48px;
+      }
+
+      p {
+        margin-top: -30px;
+        font-size: 22px;
+      }
+    }
+  }
+}
