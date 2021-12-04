@@ -1,10 +1,17 @@
 .admin {
-
   .form {
-    justify-content: center;
-    align-items: center;  
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    h1 {
+      font-size: 38px;
+      text-align: center;
+      margin: 40px auto;
+    }
+
+    form {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
   }
 }

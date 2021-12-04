@@ -1,13 +1,33 @@
 <div class="admin">
   <div class="form">
-    <mat-form-field style="width: 30vw" appearance="outline">
-      <mat-label>Enter Admin Mail</mat-label>
-      <input matInput placeholder="Admin Mail" required />
-      
-    </mat-form-field>
-    <mat-form-field style="width: 30vw" appearance="outline">
-      <mat-label>Enter Admin Password</mat-label>
-      <input matInput placeholder="Admin Password" required />
-    </mat-form-field>
+    <h1>Admin Section</h1>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+      <mat-form-field style="width: 30vw" appearance="outline">
+        <mat-label>Enter Admin Mail</mat-label>
+        <input
+          matInput
+          name="email"
+          type="email"
+          placeholder="Admin Mail"
+          required
+          ngModel
+        />
+      </mat-form-field>
+
+      <mat-form-field style="width: 30vw" appearance="outline">
+        <mat-label>Enter Admin Password</mat-label>
+        <input
+          matInput
+          name="password"
+          type="password"
+          placeholder="Admin Password"
+          required
+          ngModel
+        />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" [disabled]="form.invalid">Log In</button>
+    </form>
   </div>
 </div>

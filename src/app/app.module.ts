@@ -8,19 +8,23 @@ import { MaterialModule } from './material.module';
 import { AdminComponent } from './admin/admin.component';
 import { StudentComponent } from './student/student.component';
 import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
+import { AdminMainComponent } from './admin/admin-main/admin-main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
     StudentComponent,
-    HomeComponent
+    HomeComponent,
+    AdminMainComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
