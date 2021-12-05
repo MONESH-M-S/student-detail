@@ -1,1 +1,14 @@
-<p>student-detail-view works!</p>
+<div class="container">
+  <mat-card>
+    <div class="title">
+        <mat-card-title>{{ studentDetail.roll }}</mat-card-title>
+        <mat-card-title>{{ studentDetail.name }}</mat-card-title>
+    </div>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions>
+      <p>Paper - {{ studentDetail.paper }}</p>
+      <p>Project - {{ studentDetail.project }}</p>
+    </mat-card-actions>
+    <mat-card-footer> </mat-card-footer>
+  </mat-card>
+</div>

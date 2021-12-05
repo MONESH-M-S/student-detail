@@ -14,6 +14,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { StudentDetailViewComponent } from './admin/student-detail-view/student-detail-view.component';
+import { AdminService } from './admin/admin.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { StudentDetailViewComponent } from './admin/student-detail-view/student-
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [AdminService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

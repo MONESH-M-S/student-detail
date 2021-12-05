@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-admin-main',
@@ -6,23 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-main.component.scss'],
 })
 export class AdminMainComponent implements OnInit {
-  studentDetails = [
-    { id: 1, roll: '19EIR050', paper: 3, project: 3 },
-    { id: 2, roll: '19EIR054', paper: 1, project: 5 },
-    { id: 3, roll: '19EIR052', paper: 3, project: 3 },
-    { id: 4, roll: '19EIR053', paper: 5, project: 1 },
-    { id: 5, roll: '19EIR055', paper: 3, project: 4 },
-    { id: 6, roll: '19EIR050', paper: 3, project: 3 },
-    { id: 7, roll: '19EIR054', paper: 1, project: 5 },
-    { id: 8, roll: '19EIR052', paper: 3, project: 3 },
-    { id: 9, roll: '19EIR053', paper: 5, project: 1 },
-  ];
+  studentDetails: any = [];
 
-  isAdmin: boolean = true
+  constructor(private router: Router, private adminService: AdminService) {}
 
-  constructor() {}
+  ngOnInit(): void {
+    this.studentDetails = this.adminService.getStudentDetails();
+  }
 
-  ngOnInit(): void {}
-
-  onCardClick(id: number) {}
+  onCardClick(id: number) {
+    this.router.navigateByUrl(`admin/home/${id}`);
+  }
 }

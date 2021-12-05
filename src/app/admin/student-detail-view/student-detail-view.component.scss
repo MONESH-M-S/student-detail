@@ -1,0 +1,15 @@
+.container {
+  mat-card {
+    margin: auto 120px 40px 120px;
+    box-shadow: 3px 4px 5px 4px rgba(0, 0, 0, 0.3);
+
+    .title {
+      display: flex;
+      justify-content: space-evenly;
+
+      mat-card-title {
+        margin: 20px auto;
+      }
+    }
+  }
+}
