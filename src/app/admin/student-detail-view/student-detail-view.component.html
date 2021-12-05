@@ -1,14 +1,37 @@
 <div class="container">
-  <mat-card>
-    <div class="title">
-        <mat-card-title>{{ studentDetail.roll }}</mat-card-title>
-        <mat-card-title>{{ studentDetail.name }}</mat-card-title>
+  <mat-card class="main-card">
+    <div class="main-card-img">
+      <img
+        src="{{ '../../../assets/IMG-20210226-WA0002.jpg' }}"
+        alt="Profile picture"
+      />
     </div>
     <mat-divider inset></mat-divider>
+    <div class="title">
+      <mat-card-title>{{ studentDetail.name }}</mat-card-title>
+      <mat-card-title>{{ studentDetail.roll }}</mat-card-title>
+    </div>
     <mat-card-actions>
-      <p>Paper - {{ studentDetail.paper }}</p>
-      <p>Project - {{ studentDetail.project }}</p>
+      <div class="content">
+        <p>Paper Presented - {{ studentDetail.paper }}</p>
+        <p>Project Presented - {{ studentDetail.project }}</p>
+      </div>
     </mat-card-actions>
-    <mat-card-footer> </mat-card-footer>
   </mat-card>
+
+  <div class="expansion">
+    <mat-card class="expansion-card">
+      <mat-tab-group backgroundColor="primary">
+        <mat-tab label="Paper(s) Presented">
+          <app-detailed-table></app-detailed-table>
+        </mat-tab>
+        <mat-tab label="Project(s) Presented">
+          <app-detailed-table></app-detailed-table>
+        </mat-tab>
+        <mat-tab label="Other Activity">
+          <app-detailed-table></app-detailed-table>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+  </div>
 </div>

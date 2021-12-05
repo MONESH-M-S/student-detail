@@ -15,6 +15,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { StudentDetailViewComponent } from './admin/student-detail-view/student-detail-view.component';
 import { AdminService } from './admin/admin.service';
+import { DetailedTableComponent } from './admin/student-detail-view/detailed-table/detailed-table.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AdminService } from './admin/admin.service';
     HomeComponent,
     AdminMainComponent,
     StudentDetailViewComponent,
+    DetailedTableComponent,
   ],
   imports: [
     AppRoutingModule,

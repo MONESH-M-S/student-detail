@@ -7,6 +7,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   imports: [
@@ -18,6 +21,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDividerModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatTabsModule,
+    MatTableModule,
+    MatSortModule,
   ],
   exports: [
     MatIconModule,
@@ -28,6 +34,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDividerModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatTabsModule,
+    MatTableModule,
+    MatSortModule,
   ],
 })
 export class MaterialModule {}

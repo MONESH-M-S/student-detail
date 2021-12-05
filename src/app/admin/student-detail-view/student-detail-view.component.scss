@@ -1,15 +1,52 @@
 .container {
-  mat-card {
-    margin: auto 120px 40px 120px;
-    box-shadow: 3px 4px 5px 4px rgba(0, 0, 0, 0.3);
+  display: flex;
 
-    .title {
-      display: flex;
-      justify-content: space-evenly;
+  .main-card {
+    width: 350px;
+    margin-left: 30px;
+    margin-right: 60px;
+    height: 600px;
+    text-align: center;
 
-      mat-card-title {
-        margin: 20px auto;
+    &-img {
+      max-height: 30px;
+      margin-top: 20px;
+      margin-bottom: 300px;
+
+      img {
+        height: 300px;
+        border-radius: 100%;
       }
     }
+
+    .title {
+      margin-top: 20px;
+      font-family: "Nunito", sans-serif;
+
+      mat-card-title {
+        margin-bottom: 20px;
+        font-weight: 700;
+        font-size: 28px;
+      }
+    }
+
+    .content {
+      margin-top: 30px;
+      font-family: "Nunito", sans-serif;
+      font-size: 20px;
+
+      p {
+        font-weight: 700;
+        color: #3f51b5;
+      }
+    }
+  }
+
+  .expansion {
+    width: 60%;
+
+    mat-card {
+      height: 600px;
+    } 
   }
 }
