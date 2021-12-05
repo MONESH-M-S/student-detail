@@ -18,6 +18,8 @@ export class AdminMainComponent implements OnInit {
     { id: 9, roll: '19EIR053', paper: 5, project: 1 },
   ];
 
+  isAdmin: boolean = true
+
   constructor() {}
 
   ngOnInit(): void {}

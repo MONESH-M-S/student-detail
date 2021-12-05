@@ -10,6 +10,9 @@ import { StudentComponent } from './student/student.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { AdminMainComponent } from './admin/admin-main/admin-main.component';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -17,16 +20,17 @@ import { AdminMainComponent } from './admin/admin-main/admin-main.component';
     AdminComponent,
     StudentComponent,
     HomeComponent,
-    AdminMainComponent
+    AdminMainComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
