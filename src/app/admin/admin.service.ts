@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -15,13 +16,15 @@ export class AdminService {
     { id: 8, roll: '19EIR056', name: 'ggsjss', paper: 3, project: 3 },
     { id: 9, roll: '19EIR057', name: 'sfdfjvsks', paper: 5, project: 1 },
   ];
-  constructor() {}
+  isAdmin: boolean = false;
+
+  constructor(private fireAuth: AngularFireAuth) {}
 
   getStudentDetails() {
     return this.studentDetails;
   }
 
   getStudentDetail(index: number) {
-    return this.studentDetails[index-1];
+    return this.studentDetails[index - 1];
   }
 }

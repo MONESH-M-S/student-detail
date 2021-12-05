@@ -16,10 +16,10 @@ export class StudentDetailViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.adminService.isAdmin = true;
     this.route.params.subscribe((params) => {
       if (params) {
         this.studentDetail = this.adminService.getStudentDetail(params['id']);
-        console.log(this.studentDetail);
       }
     });
   }
