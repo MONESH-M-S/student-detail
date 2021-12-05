@@ -13,6 +13,7 @@ import { AdminMainComponent } from './admin/admin-main/admin-main.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
+import { StudentDetailViewComponent } from './admin/student-detail-view/student-detail-view.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { environment } from '../environments/environment';
     StudentComponent,
     HomeComponent,
     AdminMainComponent,
+    StudentDetailViewComponent,
   ],
   imports: [
     AppRoutingModule,

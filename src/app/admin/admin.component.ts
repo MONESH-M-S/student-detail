@@ -26,20 +26,22 @@ export class AdminComponent implements OnInit {
       .signInWithEmailAndPassword(form.value.email, form.value.password)
       .then((res) => {
         this.errorMsg = '';
-        this.snackbar.open('Admin verified!', 'Done', {
+        this.snackbar.open('Admin verified!', '', {
           duration: 4000,
           horizontalPosition: 'end',
           verticalPosition: 'top',
+          panelClass: ['mat-toolbar', 'mat-accent'],
         });
         this.isAuth = false;
         this.router.navigate(['/admin/home']);
       })
       .catch((err) => {
         this.isAuth = false;
-        this.snackbar.open('Admin verification Failed!', 'Done', {
+        this.snackbar.open('Admin verification Failed!', '', {
           duration: 6000,
           horizontalPosition: 'end',
           verticalPosition: 'top',
+          panelClass: ['mat-toolbar', 'mat-accent'],
         });
         this.errorMsg = err.message;
         console.log(err);
