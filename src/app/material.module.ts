@@ -10,6 +10,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatTabsModule,
     MatTableModule,
     MatSortModule,
+    MatSelectModule,
   ],
   exports: [
     MatIconModule,
@@ -37,6 +39,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatTabsModule,
     MatTableModule,
     MatSortModule,
+    MatSelectModule,
   ],
 })
 export class MaterialModule {}

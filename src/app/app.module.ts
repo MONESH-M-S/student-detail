@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { AdminComponent } from './admin/admin.component';
 import { StudentComponent } from './student/student.component';
-import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { AdminMainComponent } from './admin/admin-main/admin-main.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -22,7 +21,6 @@ import { DetailedTableComponent } from './admin/student-detail-view/detailed-tab
     AppComponent,
     AdminComponent,
     StudentComponent,
-    HomeComponent,
     AdminMainComponent,
     StudentDetailViewComponent,
     DetailedTableComponent,

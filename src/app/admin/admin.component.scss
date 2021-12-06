@@ -30,4 +30,30 @@
       }
     }
   }
+
+  @media (max-width: 420px) {
+    width: 80%;
+    margin: auto;
+
+    .form {
+      h1 {
+        font-size: 38px;
+        text-align: center;
+        margin: 40px auto;
+      }
+
+      form {
+
+        button {
+          padding: 5px 30px;
+          font-size: 16px;
+        }
+
+        mat-error {
+          margin-top: 13px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
 }
