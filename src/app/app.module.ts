@@ -16,6 +16,7 @@ import { StudentDetailViewComponent } from './admin/student-detail-view/student-
 import { AdminService } from './admin/admin.service';
 import { DetailedTableComponent } from './admin/student-detail-view/detailed-table/detailed-table.component';
 import { SignupComponent } from './student/signup/signup.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,13 @@ import { SignupComponent } from './student/signup/signup.component';
   ],
   imports: [
     AppRoutingModule,
+    BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    HttpClientModule,
   ],
   providers: [AdminService],
   bootstrap: [AppComponent],

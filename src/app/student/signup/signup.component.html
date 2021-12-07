@@ -1,1 +1,64 @@
-<p>signup works!</p>
+<div class="container">
+  <mat-card>
+    <h3>
+      This is only for new user. <br />
+      If you are already Signed Up, Please use <a routerLink="/">Login</a>.
+    </h3>
+    <h1>Fill up the following details</h1>
+    <form>
+      <mat-form-field appearance="outline">
+        <mat-label>Your Name</mat-label>
+        <input
+          matInput
+          name="name"
+          type="text"
+          placeholder="Your name"
+          required
+          ngModel
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Kongu Mail</mat-label>
+        <input
+          matInput
+          name="email"
+          type="email"
+          placeholder="Mail with .edu"
+          required
+          ngModel
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Roll Number</mat-label>
+        <input
+          matInput
+          name="roll"
+          type="text"
+          placeholder="Roll Number"
+          required
+          ngModel
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Mentor Name</mat-label>
+        <input
+          matInput
+          name="mentor"
+          type="text"
+          placeholder="Your Mentor Name"
+          required
+          ngModel
+        />
+      </mat-form-field>
+      <input
+        name="mentor"
+        type="file"
+        placeholder="Your Mentor Name"
+        required
+        ngModel
+      />
+
+      <button mat-raised-button color="primary">Sign Up</button>
+    </form>
+  </mat-card>
+</div>

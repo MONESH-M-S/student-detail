@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Observable, Subject, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,15 @@ export class AdminService {
   ];
   isAdmin: boolean = false;
 
-  constructor(private fireAuth: AngularFireAuth) {}
+  constructor(private http: HttpClient) {}
+
+  adminLogin(email: string, password: string): Observable<{message: string}> {
+    const authData = { email: email, password: password };
+    return this.http.post<{ message: string }>(
+      'http://localhost:3000/admin-login',
+      authData
+    );
+  }
 
   getStudentDetails() {
     return this.studentDetails;

@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyCLwQEJfDFDkkoF9TpWtJYPBljIE_KVsL0',
-    authDomain: 'kec-student-details.firebaseapp.com',
-    projectId: 'kec-student-details',
-    storageBucket: 'kec-student-details.appspot.com',
-    messagingSenderId: '1076284635737',
-    appId: '1:1076284635737:web:d523b092f2216ce0658f48',
+    apiKey: 'AIzaSyBXfsR9-bqygftWaNpdo7aqeu88DPoIZDA',
+    authDomain: 'eie-students-detail.firebaseapp.com',
+    projectId: 'eie-students-detail',
+    storageBucket: 'eie-students-detail.appspot.com',
+    messagingSenderId: '975787724993',
+    appId: '1:975787724993:web:f04cdc92109d48cfe80440',
   },
 };
 
