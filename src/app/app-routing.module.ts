@@ -4,6 +4,7 @@ import { AdminMainComponent } from './admin/admin-main/admin-main.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminGuard } from './admin/admin.guard';
 import { StudentDetailViewComponent } from './admin/student-detail-view/student-detail-view.component';
+import { SignupComponent } from './student/signup/signup.component';
 import { StudentComponent } from './student/student.component';
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
     component: StudentDetailViewComponent,
     canActivate: [AdminGuard],
   },
+  { path: 'student-signup', component: SignupComponent },
   { path: '**', component: StudentComponent },
 ];
 

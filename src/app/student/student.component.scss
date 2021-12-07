@@ -51,7 +51,7 @@
 
 .admin {
   text-align: center;
-  margin-top:20px;
+  margin-top: 20px;
 
   h3 {
     font-weight: 600;
@@ -69,6 +69,51 @@
 
     mat-icon {
       font-size: 15px;
+    }
+  }
+}
+
+.form {
+  text-align: center;
+  margin-top: 60px;
+
+  h1 {
+    font-weight: 600;
+    margin-top: 120px;
+  }
+
+  form {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    mat-form-feild {
+      width: 30vw;
+    }
+
+    @media (min-width: 450px) {
+      mat-form-field {
+        width: 30vw;
+      }
+    }
+
+    mat-error {
+      margin-top: 13px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  p {
+    margin-top: 10px;
+    font-weight: 500;
+
+    a {
+      color: blue;
+      text-transform: uppercase;
+      text-decoration: underline;
     }
   }
 }

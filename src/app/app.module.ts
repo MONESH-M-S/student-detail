@@ -15,6 +15,7 @@ import { environment } from '../environments/environment';
 import { StudentDetailViewComponent } from './admin/student-detail-view/student-detail-view.component';
 import { AdminService } from './admin/admin.service';
 import { DetailedTableComponent } from './admin/student-detail-view/detailed-table/detailed-table.component';
+import { SignupComponent } from './student/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { DetailedTableComponent } from './admin/student-detail-view/detailed-tab
     AdminMainComponent,
     StudentDetailViewComponent,
     DetailedTableComponent,
+    SignupComponent,
   ],
   imports: [
     AppRoutingModule,
