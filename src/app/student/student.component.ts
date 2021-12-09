@@ -34,7 +34,7 @@ export class StudentComponent implements OnInit {
           panelClass: ['mat-toolbar', 'mat-accent'],
         });
         this.isAuth = false;
-        this.router.navigate(['/']);
+        this.router.navigate(['student/detail-upload']);
       })
       .catch((err) => {
         this.isAuth = false;

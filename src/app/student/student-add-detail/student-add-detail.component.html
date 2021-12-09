@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="card">
+    <mat-card>
+      <div class="title">
+        <h3>Upload Your Details</h3>
+        <button
+          mat-raised-button
+          class="history"
+          color="primary"
+          routerLink="student/detail-upload"
+        >
+          History <mat-icon>update</mat-icon>
+        </button>
+      </div>
+      <div class="tab">
+        <mat-tab-group mat-stretch-tabs>
+          <mat-tab label="Paper Presentation">
+            <app-student-detail-form></app-student-detail-form>
+          </mat-tab>
+          <mat-tab label="Project Presentation">
+            <app-student-detail-form></app-student-detail-form>
+          </mat-tab>
+          <mat-tab label="other Activites">
+            <app-student-detail-form></app-student-detail-form>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </mat-card>
+  </div>
+</div>
