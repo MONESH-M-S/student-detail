@@ -5,7 +5,7 @@
       If you are already Signed Up, Please use <a routerLink="/">Login</a>.
     </h3>
     <h1>Fill up the following details</h1>
-    <form>
+    <form [formGroup]="signupForm">
       <mat-form-field appearance="outline">
         <mat-label>Your Name</mat-label>
         <input
@@ -13,8 +13,8 @@
           name="name"
           type="text"
           placeholder="Your name"
+          formControlName="name"
           required
-          ngModel
         />
       </mat-form-field>
       <mat-form-field appearance="outline">
@@ -24,8 +24,8 @@
           name="email"
           type="email"
           placeholder="Mail with .edu"
+          formControlName="email"
           required
-          ngModel
         />
       </mat-form-field>
       <mat-form-field appearance="outline">
@@ -35,8 +35,19 @@
           name="roll"
           type="text"
           placeholder="Roll Number"
+          formControlName="roll"
           required
-          ngModel
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          name="mentor"
+          type="password"
+          placeholder="Your Mentor Name"
+          formControlName="password"
+          required
         />
       </mat-form-field>
       <mat-form-field appearance="outline">
@@ -46,19 +57,33 @@
           name="mentor"
           type="text"
           placeholder="Your Mentor Name"
+          formControlName="mentor"
           required
-          ngModel
         />
       </mat-form-field>
+      <mat-label>Profile Picture (.png, .jpg, .jpeg only allowed!)</mat-label>
+      <button mat-stroked-button color="accent" type="button" (click)="filePicker.click()">
+        Pick Image
+      </button>
       <input
-        name="mentor"
         type="file"
-        placeholder="Your Mentor Name"
+        #filePicker
+        (change)="onImagePicked($event)"
         required
-        ngModel
       />
 
-      <button mat-raised-button color="primary">Sign Up</button>
+      <div class="col-2 pl-0">
+        <img [width]="100" [src]="imageDisplay" alt="" />
+      </div>
+
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="signupForm.invalid"
+        (click)="onSubmit()"
+      >
+        Sign Up
+      </button>
     </form>
   </mat-card>
 </div>

@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { AdminComponent } from './admin/admin.component';
 import { StudentComponent } from './student/student.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminMainComponent } from './admin/admin-main/admin-main.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
@@ -17,6 +17,8 @@ import { AdminService } from './admin/admin.service';
 import { DetailedTableComponent } from './admin/student-detail-view/detailed-table/detailed-table.component';
 import { SignupComponent } from './student/signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StudentAddDetailComponent } from './student/student-add-detail/student-add-detail.component';
+import { StudentDetailFormComponent } from './student/student-add-detail/student-detail-form/student-detail-form.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     StudentDetailViewComponent,
     DetailedTableComponent,
     SignupComponent,
+    StudentAddDetailComponent,
+    StudentDetailFormComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -37,6 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [AdminService],
   bootstrap: [AppComponent],
