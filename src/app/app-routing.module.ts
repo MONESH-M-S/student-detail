@@ -4,6 +4,7 @@ import { AdminMainComponent } from './admin/admin-main/admin-main.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminGuard } from './admin/admin.guard';
 import { StudentDetailViewComponent } from './admin/student-detail-view/student-detail-view.component';
+import { HistoryComponent } from './student/history/history.component';
 import { SignupComponent } from './student/signup/signup.component';
 import { StudentAddDetailComponent } from './student/student-add-detail/student-add-detail.component';
 import { StudentComponent } from './student/student.component';
@@ -22,7 +23,8 @@ const routes: Routes = [
     canActivate: [AdminGuard],
   },
   { path: 'student-signup', component: SignupComponent },
-  {path: 'student/detail-upload', component: StudentAddDetailComponent},
+  {path: 'student/detail-upload/:id', component: StudentAddDetailComponent},
+  {path: 'student/detail-upload/:id/history', component: HistoryComponent},
   { path: '**', component: StudentComponent },
 ];
 

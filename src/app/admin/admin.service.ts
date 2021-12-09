@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Observable, Subject, Subscription } from 'rxjs';
 
 @Injectable({
@@ -19,14 +20,10 @@ export class AdminService {
   ];
   isAdmin: boolean = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private fireAuth: AngularFireAuth) {}
 
-  adminLogin(email: string, password: string): Observable<{message: string}> {
-    const authData = { email: email, password: password };
-    return this.http.post<{ message: string }>(
-      'http://localhost:3000/admin-login',
-      authData
-    );
+  adminLogin(email: string, password: string) {
+    return this.fireAuth.signInWithEmailAndPassword(email, password);
   }
 
   getStudentDetails() {

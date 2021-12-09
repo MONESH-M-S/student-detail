@@ -63,7 +63,6 @@ export class SignupComponent implements OnInit {
     if (this.signupForm.invalid) {
       return;
     }
-    console.log(this.signupForm.value);
     const form = this.signupForm.value;
 
     this.authService
@@ -78,10 +77,6 @@ export class SignupComponent implements OnInit {
       .subscribe(
         (res) => {
           {
-            this.authService.signupOnFirebase(
-              this.signupForm.value.email,
-              this.signupForm.value.password
-            );
             this.snackbar.open('Signup Successful!', '', {
               duration: 4000,
               horizontalPosition: 'end',

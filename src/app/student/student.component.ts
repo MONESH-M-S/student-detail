@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-student',
@@ -16,16 +17,17 @@ export class StudentComponent implements OnInit {
   constructor(
     private fireAuth: AngularFireAuth,
     private snackbar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
+    const email = form.value.email;
     this.isAuth = true;
-    this.fireAuth
-      .signInWithEmailAndPassword(form.value.email, form.value.password)
-      .then((res) => {
+    this.authService.userLogin(form.value.email, form.value.password).subscribe(
+      (res) => {
         this.errorMsg = '';
         this.snackbar.open('Login Successful!', '', {
           duration: 4000,
@@ -34,9 +36,10 @@ export class StudentComponent implements OnInit {
           panelClass: ['mat-toolbar', 'mat-accent'],
         });
         this.isAuth = false;
-        this.router.navigate(['student/detail-upload']);
-      })
-      .catch((err) => {
+        const id = res.id;
+        this.router.navigate([`student/detail-upload/${id}`]);
+      },
+      (err) => {
         this.isAuth = false;
         this.snackbar.open('Student Login Failed!', '', {
           duration: 6000,
@@ -46,7 +49,8 @@ export class StudentComponent implements OnInit {
         });
         this.errorMsg = err.message;
         console.log(err);
-      });
+      }
+    );
     window.setTimeout(() => {
       this.errorMsg = '';
     }, 6000);

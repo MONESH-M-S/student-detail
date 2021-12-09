@@ -26,32 +26,30 @@ export class AdminComponent implements OnInit {
     this.isAuth = true;
     this.adminService
       .adminLogin(form.value.email, form.value.password)
-      .subscribe(
-        (meassage) => {
-          this.adminService.isAdmin = true;
-          this.errorMsg = '';
-          this.snackbar.open('Admin verified!', '', {
-            duration: 4000,
-            horizontalPosition: 'end',
-            verticalPosition: 'top',
-            panelClass: ['mat-toolbar', 'mat-accent'],
-          });
-          this.isAuth = false;
-          this.router.navigate(['/admin/home']);
-        },
-        (err: { message: string }) => {
-          this.adminService.isAdmin = false;
-          this.isAuth = false;
-          this.snackbar.open('Admin verification Failed!', '', {
-            duration: 6000,
-            horizontalPosition: 'end',
-            verticalPosition: 'top',
-            panelClass: ['mat-toolbar', 'mat-accent'],
-          });
-          this.errorMsg = err.message;
-          console.log(err);
-        }
-      );
+      .then((meassage) => {
+        this.adminService.isAdmin = true;
+        this.errorMsg = '';
+        this.snackbar.open('Admin verified!', '', {
+          duration: 4000,
+          horizontalPosition: 'end',
+          verticalPosition: 'top',
+          panelClass: ['mat-toolbar', 'mat-accent'],
+        });
+        this.isAuth = false;
+        this.router.navigate(['/admin/home']);
+      })
+      .catch((err: { message: string }) => {
+        this.adminService.isAdmin = false;
+        this.isAuth = false;
+        this.snackbar.open('Admin verification Failed!', '', {
+          duration: 6000,
+          horizontalPosition: 'end',
+          verticalPosition: 'top',
+          panelClass: ['mat-toolbar', 'mat-accent'],
+        });
+        this.errorMsg = err.message;
+        console.log(err);
+      });
     window.setTimeout(() => {
       this.errorMsg = '';
     }, 6000);

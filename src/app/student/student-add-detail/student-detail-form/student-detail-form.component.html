@@ -1,5 +1,74 @@
 <div class="container">
-    <form>
-        
-    </form>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <mat-form-field appearance="outline">
+      <mat-label>Event-name</mat-label>
+      <input
+        matInput
+        name="event"
+        type="text"
+        placeholder="Event Name"
+        required
+        ngModel
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Event-Venue (with full address)</mat-label>
+      <input
+        matInput
+        name="venue"
+        type="text"
+        placeholder="Event taken place"
+        required
+        ngModel
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Mode (online/offline)</mat-label>
+      <mat-select>
+        <mat-option value="online">ONLINE</mat-option>
+        <mat-option value="offline">OFFLINE</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Prize</mat-label>
+      <mat-select>
+        <mat-option value="first">1'st Prize</mat-option>
+        <mat-option value="second">2'nd Prize</mat-option>
+        <mat-option value="third">3'rd Prize</mat-option>
+        <mat-option value="Participation">Participation</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Event Date</mat-label>
+      <input
+        matInput
+        name="date"
+        type="text"
+        placeholder="Event Date"
+        required
+        ngModel
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Type</mat-label>
+      <mat-select>
+        <mat-option value="paper">Papaer Presentation</mat-option>
+        <mat-option value="project">Project Presentation</mat-option>
+        <mat-option value="other">Other(s)</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-label class="file-title">
+      Upload only in .png, .jpg, .jpeg format, Other format's not allowed
+    </mat-label>
+    <button class="file"
+      mat-stroked-button
+      color="accent"
+      type="button"
+      (click)="filePicker.click()"
+    >
+      Insert Certificate Image
+    </button>
+    <input type="file" #filePicker (change)="onImagePicked($event)" required />
+    <button mat-raised-button color="primary">Submit</button>
+  </form>
 </div>

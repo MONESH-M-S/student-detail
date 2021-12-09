@@ -19,6 +19,7 @@ import { SignupComponent } from './student/signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentAddDetailComponent } from './student/student-add-detail/student-add-detail.component';
 import { StudentDetailFormComponent } from './student/student-add-detail/student-detail-form/student-detail-form.component';
+import { HistoryComponent } from './student/history/history.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { StudentDetailFormComponent } from './student/student-add-detail/student
     SignupComponent,
     StudentAddDetailComponent,
     StudentDetailFormComponent,
+    HistoryComponent,
   ],
   imports: [
     AppRoutingModule,

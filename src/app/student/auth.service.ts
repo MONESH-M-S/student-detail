@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class AuthService {
   firbaseSignup = false;
   errorMsg = '';
+  userId: any;
 
   constructor(private fireAuth: AngularFireAuth, private http: HttpClient) {}
 
@@ -34,14 +35,11 @@ export class AuthService {
     );
   }
 
-  signupOnFirebase(email: string, password: string) {
-    this.fireAuth
-      .createUserWithEmailAndPassword(email, password)
-      .then((res) => {
-        this.firbaseSignup = true;
-      })
-      .catch((err) => {
-        this.errorMsg = err;
-      });
+  userLogin(email: string, password: string) {
+    const authData = { email: email, password: password };
+    return this.http.post<{ message: string; user: any, id: string }>(
+      'http://localhost:3000/',
+      authData
+    );
   }
 }
