@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,16 +12,36 @@ export class AuthService {
 
   constructor(private fireAuth: AngularFireAuth, private http: HttpClient) {}
 
-  onSignup(form: FormData) {
-    // this.fireAuth
-    //   .createUserWithEmailAndPassword(form.value.email, form.value.roll)
-    //   .then((res) => {
-    //     this.firbaseSignup = true;
-    //   })
-    //   .catch((err) => {
-    //     this.errorMsg = err;
-    //   });
+  onSignup(
+    name: string,
+    email: string,
+    roll: string,
+    password: string,
+    mentor: string,
+    image: string
+  ): Observable<{ user: any }> {
+    const userData = new FormData();
+    userData.append('name', name);
+    userData.append('email', email);
+    userData.append('roll', roll);
+    userData.append('password', password);
+    userData.append('mentor', mentor);
+    userData.append('image', image, name);
 
-    return this.http.post('https://localhost:3000/student-signup', form);
+    return this.http.post<{ user: any }>(
+      `http://localhost:3000/student-signup`,
+      userData
+    );
+  }
+
+  signupOnFirebase(email: string, password: string) {
+    this.fireAuth
+      .createUserWithEmailAndPassword(email, password)
+      .then((res) => {
+        this.firbaseSignup = true;
+      })
+      .catch((err) => {
+        this.errorMsg = err;
+      });
   }
 }

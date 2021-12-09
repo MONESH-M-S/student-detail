@@ -35,9 +35,12 @@ export class SignupComponent implements OnInit {
       name: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       roll: new FormControl(null, [Validators.required]),
-      password: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
       mentor: new FormControl(null, [Validators.required]),
-      file: new FormControl(null, {
+      image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType],
       }),
@@ -46,8 +49,8 @@ export class SignupComponent implements OnInit {
 
   onImagePicked(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
-    this.signupForm.patchValue({ file: file });
-    this.signupForm.get('file').updateValueAndValidity();
+    this.signupForm.patchValue({ image: file });
+    this.signupForm.get('image').updateValueAndValidity();
     const reader = new FileReader();
     reader.onload = () => {
       this.imageDisplay = reader.result as string;
@@ -60,38 +63,47 @@ export class SignupComponent implements OnInit {
     if (this.signupForm.invalid) {
       return;
     }
-    const formData = new FormData();
+    console.log(this.signupForm.value);
+    const form = this.signupForm.value;
 
-    for (const key of Object.keys(this.signupForm)) {
-      const value = this.signupForm[key];
-      formData.append(key, value);
-    }
-
-    this.authService.onSignup(formData).subscribe(
-      (res) => {
-        {
-          this.snackbar.open('Signup Successful!', '', {
-            duration: 4000,
+    this.authService
+      .onSignup(
+        form.name,
+        form.email,
+        form.roll,
+        form.password,
+        form.mentor,
+        form.image
+      )
+      .subscribe(
+        (res) => {
+          {
+            this.authService.signupOnFirebase(
+              this.signupForm.value.email,
+              this.signupForm.value.password
+            );
+            this.snackbar.open('Signup Successful!', '', {
+              duration: 4000,
+              horizontalPosition: 'end',
+              verticalPosition: 'top',
+              panelClass: ['mat-toolbar', 'mat-accent'],
+            });
+            this.isSubmitted = false;
+            // this.dialog.open()
+            this.router.navigate(['/']);
+          }
+        },
+        (err) => {
+          this.errorMsg = err.message;
+          this.isSubmitted = false;
+          this.snackbar.open('Student Signup Failed!', '', {
+            duration: 6000,
             horizontalPosition: 'end',
             verticalPosition: 'top',
             panelClass: ['mat-toolbar', 'mat-accent'],
           });
-          this.isSubmitted = false;
-          // this.dialog.open()
-          this.router.navigate(['/']);
         }
-      },
-      (err) => {
-        this.errorMsg = err.message;
-        this.isSubmitted = false;
-        this.snackbar.open('Student Signup Failed!', '', {
-          duration: 6000,
-          horizontalPosition: 'end',
-          verticalPosition: 'top',
-          panelClass: ['mat-toolbar', 'mat-accent'],
-        });
-      }
-    );
+      );
     window.setTimeout(() => {
       this.errorMsg = '';
     }, 6000);
