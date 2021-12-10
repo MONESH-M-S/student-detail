@@ -20,7 +20,6 @@ export class StudentDetailFormComponent implements OnInit {
   imageDisplay!: string | null;
   isSubmitted: boolean = false;
   id: string;
-  event: string;
   errorMsg: any;
 
   constructor(
@@ -62,7 +61,6 @@ export class StudentDetailFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.event = this.form.get('type').value;
 
     this.isSubmitted = true;
     if (this.form.invalid) {
@@ -77,8 +75,8 @@ export class StudentDetailFormComponent implements OnInit {
     f.append('type', this.form.value.type);
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
-    if (this.event && this.id) {
-      this.authService.postUserData(f, this.event).subscribe(
+    if (this.id) {
+      this.authService.postUserData(f).subscribe(
         (res) => {
           {
             this.snackbar.open('Certificate Added Successful!', '', {

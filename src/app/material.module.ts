@@ -12,6 +12,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSortModule,
     MatSelectModule,
     MatDialogModule,
+    MatExpansionModule,
   ],
   exports: [
     MatIconModule,
@@ -43,6 +45,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSortModule,
     MatSelectModule,
     MatDialogModule,
+    MatExpansionModule,
   ],
 })
 export class MaterialModule {}

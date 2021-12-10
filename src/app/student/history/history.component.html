@@ -1,1 +1,21 @@
-<p>history works!</p>
+<div class="container">
+  <mat-card>
+    <mat-card-title>
+      <h1>History</h1>
+    </mat-card-title>
+    <div *ngFor="let activity of userActivites">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> {{ activity.event }} </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>{{ activity.venue }}</p>
+        <img [src]="activity.image" style="width: 100px" alt="" />
+        <mat-action-row>
+          <button mat-button color="warn" (click)="onDeleteActivity(activity._id)">
+            <mat-icon>delete</mat-icon>DELETE
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </div>
+  </mat-card>
+</div>

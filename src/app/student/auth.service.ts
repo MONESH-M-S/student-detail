@@ -43,22 +43,23 @@ export class AuthService {
     );
   }
 
-  postUserData(form: FormData, event: string) {
-    if (event === 'paper') {
-      return this.http.post<{ message: string; data: any }>(
-        `http://localhost:3000/user/paper`,
-        form
-      );
-    } else if (event === 'project') {
-      return this.http.post<{ message: string; data: any }>(
-        `http://localhost:3000/user/project`,
-        form 
-      );
-    } else if (event === 'other') {
-      return this.http.post<{ message: string; data: any }>(
-        `http://localhost:3000/user/other`,
-        form
-      );
-    }
+  postUserData(form: FormData) {
+    return this.http.post<{ message: string; data: any }>(
+      `http://localhost:3000/user/activity`,
+      form
+    );
+  }
+
+  getUserActivity(id: string) {
+    return this.http.post<{ message: string; activity: any[]; count: number }>(
+      `http://localhost:3000/user/getall-activity`,
+      id
+    );
+  }
+
+  deleteActivity(id: string) {
+    return this.http.delete<{ message: string }>(
+      `http://localhost:3000/user/delete/${id}`
+    );
   }
 }

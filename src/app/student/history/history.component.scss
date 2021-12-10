@@ -1,0 +1,21 @@
+.container {
+  mat-card {
+    width: 86%;
+    margin: auto;
+    height: 90vh;
+
+    mat-card-title {
+      h1 {
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 700;
+        letter-spacing: 3px;
+      }
+    }
+
+    mat-expansion-panel {
+        margin-top: 10px;
+        border: 0px 3px 4px 3px solid rgba(61, 61, 61, 0.788);
+    }
+  }
+}
