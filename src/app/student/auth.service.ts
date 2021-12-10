@@ -37,9 +37,28 @@ export class AuthService {
 
   userLogin(email: string, password: string) {
     const authData = { email: email, password: password };
-    return this.http.post<{ message: string; user: any, id: string }>(
+    return this.http.post<{ message: string; user: any; id: string }>(
       'http://localhost:3000/',
       authData
     );
+  }
+
+  postUserData(form: FormData, event: string) {
+    if (event === 'paper') {
+      return this.http.post<{ message: string; data: any }>(
+        `http://localhost:3000/user/paper`,
+        form
+      );
+    } else if (event === 'project') {
+      return this.http.post<{ message: string; data: any }>(
+        `http://localhost:3000/user/project`,
+        form 
+      );
+    } else if (event === 'other') {
+      return this.http.post<{ message: string; data: any }>(
+        `http://localhost:3000/user/other`,
+        form
+      );
+    }
   }
 }

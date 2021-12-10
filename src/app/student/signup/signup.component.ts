@@ -8,7 +8,6 @@ import {
 import { AuthService } from '../auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
 import { mimeType } from './mime-type.validator';
 
 @Component({
@@ -26,7 +25,6 @@ export class SignupComponent implements OnInit {
     private formBulider: FormBuilder,
     private authService: AuthService,
     private snackbar: MatSnackBar,
-    private dialog: MatDialog,
     private router: Router
   ) {}
 
@@ -84,7 +82,6 @@ export class SignupComponent implements OnInit {
               panelClass: ['mat-toolbar', 'mat-accent'],
             });
             this.isSubmitted = false;
-            // this.dialog.open()
             this.router.navigate(['/']);
           }
         },
