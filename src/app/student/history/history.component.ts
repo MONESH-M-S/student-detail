@@ -21,9 +21,7 @@ export class HistoryComponent implements OnInit {
       this.id = params['id'];
     });
     this.authService.getUserActivity(this.id).subscribe((activity) => {
-      console.log(activity);
       this.userActivites = activity.activity;
-      console.log(this.userActivites);
     });
   }
 
