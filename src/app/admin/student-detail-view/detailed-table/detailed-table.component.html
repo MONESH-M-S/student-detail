@@ -1,32 +1,26 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
-    <td mat-cell *matCellDef="let element">
-      {{ element.position }}
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-    <td mat-cell *matCellDef="let element">
-      {{ element.name }}
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Weight</th>
-    <td mat-cell *matCellDef="let element">
-      {{ element.weight }}
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Symbol</th>
-    <td mat-cell *matCellDef="let element">
-      {{ element.symbol }}
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>
+<div *ngIf="activityDetails" class="mat-card-outer">
+  <div class="cards" *ngFor="let activity of activityDetails">
+    <mat-card>
+      <mat-card-title
+        ><div class="title">
+          <h1>{{ activity.event }},</h1>
+          <h3>{{ activity.venue }}</h3>
+        </div></mat-card-title
+      >
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <div>
+          <p><span>Type</span>: {{ activity.type }}</p>
+          <p><span>Prize</span>: {{ activity.prize }}</p>
+        </div>
+        <div>
+          <p><span>Date</span>: {{ activity.date }}</p>
+          <p><span>Mode</span>: {{ activity.mode }}</p>
+        </div>
+        <div>
+          <img [src]="activity.image" alt="Certificate" />
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

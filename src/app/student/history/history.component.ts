@@ -29,7 +29,6 @@ export class HistoryComponent implements OnInit {
     this.authService.deleteActivity(activityId).subscribe((res) => {
       if (res) {
         this.authService.getUserActivity(this.id).subscribe((activity) => {
-          console.log(activity);
           this.userActivites = activity.activity;
         });
       }

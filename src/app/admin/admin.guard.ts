@@ -18,17 +18,17 @@ export class AdminGuard implements CanActivate {
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
     | boolean {
-    if (this.adminService.isAdmin) {
-      return true;
-    }
-    this.snackbar.open('Please login yorself as Admin', '', {
-      duration: 6000,
-      horizontalPosition: 'end',
-      verticalPosition: 'top',
-      panelClass: ['mat-toolbar', 'mat-accent'],
-    });
-    this.router.navigateByUrl(`/`);
-    return false;
-    // return true;
+    // if (this.adminService.isAdmin) {
+    //   return true;
+    // }
+    // this.snackbar.open('Please login yorself as Admin', '', {
+    //   duration: 6000,
+    //   horizontalPosition: 'end',
+    //   verticalPosition: 'top',
+    //   panelClass: ['mat-toolbar', 'mat-accent'],
+    // });
+    // this.router.navigateByUrl(`/`);
+    // return false;
+    return true;
   }
 }

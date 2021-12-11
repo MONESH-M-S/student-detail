@@ -61,7 +61,6 @@ export class StudentDetailFormComponent implements OnInit {
   }
 
   onSubmit() {
-
     this.isSubmitted = true;
     if (this.form.invalid) {
       return;

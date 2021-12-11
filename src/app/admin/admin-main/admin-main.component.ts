@@ -8,12 +8,20 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./admin-main.component.scss'],
 })
 export class AdminMainComponent implements OnInit {
-  studentDetails: any = [];
+  studentDetails: any;
+  errMsg: string = '';
 
   constructor(private router: Router, private adminService: AdminService) {}
 
   ngOnInit(): void {
-    this.studentDetails = this.adminService.getStudentDetails();
+    this.adminService.getStudents().subscribe(
+      (data) => {
+        this.studentDetails = data;
+      },
+      (err) => {
+        this.errMsg = err;
+      }
+    );
   }
 
   onCardClick(id: number) {

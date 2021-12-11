@@ -9,34 +9,22 @@
       </div>
       <mat-divider inset></mat-divider>
       <div class="title">
-        <mat-card-title>{{ studentDetail.name }}</mat-card-title>
-        <mat-card-title>{{ studentDetail.roll }}</mat-card-title>
+        <mat-card-title>{{ studentDetail.username }}</mat-card-title>
+        <mat-card-title>{{ studentDetail.rollno }}</mat-card-title>
       </div>
       <mat-card-actions>
         <div class="content">
-          <p>Paper Presented - {{ studentDetail.paper }}</p>
-          <p>Project Presented - {{ studentDetail.project }}</p>
+          <p>Paper Presented - {{ paperCount }}</p>
+          <p>Project Presented - {{ projectCount }}</p>
+          <p>Other Activities - {{ otherCount }}</p>
         </div>
       </mat-card-actions>
     </mat-card>
 
     <div class="expansion">
       <mat-card class="expansion-card">
-        <mat-tab-group backgroundColor="primary">
-          <mat-tab label="Paper(s) Presented">
-            <app-detailed-table></app-detailed-table>
-          </mat-tab>
-          <mat-tab label="Project(s) Presented">
-            <app-detailed-table></app-detailed-table>
-          </mat-tab>
-          <mat-tab label="Other Activity">
-            <app-detailed-table></app-detailed-table>
-          </mat-tab>
-        </mat-tab-group>
+        <app-detailed-table></app-detailed-table>
       </mat-card>
     </div>
-  </div>
-  <div class="mobile-view">
-    <h2>Please Use Large Screen to View. </h2>
   </div>
 </div>

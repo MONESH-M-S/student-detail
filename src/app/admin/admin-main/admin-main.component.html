@@ -2,13 +2,13 @@
   <mat-card
     class="example-card"
     *ngFor="let detail of studentDetails; index as i"
-    (click)="onCardClick(detail.id)"
+    (click)="onCardClick(detail._id)"
   >
-    <mat-card-title>{{ detail.roll }}</mat-card-title>
+    <mat-card-title *ngIf="errMsg">{{ errMsg }}</mat-card-title>
+    <mat-card-title>{{ detail.rollno }}</mat-card-title>
     <mat-divider inset></mat-divider>
     <mat-card-actions>
-      <p>Paper - {{ detail.paper }}</p>
-      <p>Project - {{ detail.project }}</p>
+      <h3>{{ detail.username }}</h3>
     </mat-card-actions>
     <mat-card-footer> </mat-card-footer>
   </mat-card>
