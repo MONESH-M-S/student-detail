@@ -11,7 +11,8 @@
         <mat-expansion-panel-header>
           <mat-panel-title> {{ activity.event }} </mat-panel-title>
         </mat-expansion-panel-header>
-        <p>{{ activity.venue }}</p>
+        <p>Venue: {{ activity.venue }}</p>
+        <p>Date: {{ activity.date }}</p>
         <img [src]="activity.image" style="width: 100px" alt="" />
         <mat-action-row>
           <button

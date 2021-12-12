@@ -52,17 +52,48 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Mentor Name</mat-label>
-        <input
-          matInput
-          name="mentor"
-          type="text"
-          placeholder="Your Mentor Name"
-          formControlName="mentor"
-          required
-        />
+        <mat-select formControlName="mentor">
+          <mat-option value="Dr.S.Vijayachitra">Dr.S.Vijayachitra</mat-option>
+          <mat-option value="Dr.U.S.Ragupathy">Dr.U.S.Ragupathy</mat-option>
+          <mat-option value="Dr.R.Subasri">Dr.R.Subasri</mat-option>
+          <mat-option value="Dr.T.kalavathidevi">Dr.T.kalavathidevi</mat-option>
+          <mat-option value="Dr.K.Prabhu">Dr.K.Prabhu</mat-option>
+          <mat-option value="Dr.S.J.Suji Prasad">Dr.S.J.Suji Prasad</mat-option>
+          <mat-option value="Dr.M.Madhan Mohan">Dr.M.Madhan Mohan</mat-option>
+          <mat-option value="Dr.K.N.Baluprithviraj">
+            Dr.K.N.Baluprithviraj
+          </mat-option>
+          <mat-option value="Dr.N.Mahesh">Dr.N.Mahesh</mat-option>
+          <mat-option value="Dr.M.Sasireka">DrM.Sasireka</mat-option>
+          <mat-option value="Dr.P.Vidhyalakshmi">Dr.P.Vidhyalakshmi</mat-option>
+          <mat-option value="S.Janarthanan">S.Janarthanan</mat-option>
+          <mat-option value="M.Raja">M.Raja</mat-option>
+          <mat-option value="M.Lizzy Nesa Bagyam">
+            M.Lizzy Nesa Bagyam
+          </mat-option>
+          <mat-option value="P.Revathi">P.Revathi</mat-option>
+          <mat-option value="R.Mouleeshuwarpprabhu">
+            R.Mouleeshuwarpprabhu
+          </mat-option>
+          <mat-option value="R.Rajkumar">R.Rajkumar</mat-option>
+          <mat-option value="M.Thangatamilan">M.Thangatamilan</mat-option>
+          <mat-option value="K.Yuvaraj">K.Yuvaraj</mat-option>
+          <mat-option value="C.Aravind">C.Aravind</mat-option>
+          <mat-option value="S.Jegan">S.Jegan</mat-option>
+          <mat-option value="B.Venkatesan">B.Venkatesan</mat-option>
+          <mat-option value="D.Selvakarthi">D.Selvakarthi</mat-option>
+          <mat-option value="T.Mrunalini">T.Mrunalini</mat-option>
+        </mat-select>
       </mat-form-field>
-      <mat-label class="title-image">Profile Picture (.png, .jpg, .jpeg only allowed!)</mat-label>
-      <button mat-stroked-button color="accent" type="button" (click)="filePicker.click()">
+      <mat-label class="title-image">
+        Profile Picture (.png, .jpg, .jpeg only allowed!)
+      </mat-label>
+      <button
+        mat-stroked-button
+        color="accent"
+        type="button"
+        (click)="filePicker.click()"
+      >
         Pick Image
       </button>
       <input

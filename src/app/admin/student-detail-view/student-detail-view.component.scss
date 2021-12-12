@@ -30,6 +30,17 @@
         text-transform: uppercase;
         letter-spacing: 2px;
       }
+
+      mat-card-subtitle {
+        font-size: 19px;
+        color: #000;
+        font-weight: 500;
+
+        span {
+          font-weight: 400;
+          text-transform: capitalize;
+        }
+      }
     }
 
     .content {
