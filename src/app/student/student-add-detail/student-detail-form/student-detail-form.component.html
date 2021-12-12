@@ -11,6 +11,7 @@
         required
       />
     </mat-form-field>
+
     <mat-form-field appearance="outline">
       <mat-label>Event-Venue (with full address)</mat-label>
       <input
@@ -22,6 +23,7 @@
         required
       />
     </mat-form-field>
+
     <mat-form-field appearance="outline">
       <mat-label>Mode (online/offline)</mat-label>
       <mat-select formControlName="mode">
@@ -29,6 +31,7 @@
         <mat-option value="offline">OFFLINE</mat-option>
       </mat-select>
     </mat-form-field>
+
     <mat-form-field appearance="outline">
       <mat-label>Prize</mat-label>
       <mat-select formControlName="prize">
@@ -43,12 +46,12 @@
       <input
         matInput
         name="date"
-        type="text"
-        placeholder="Event Date"
+        type="date"
         formControlName="date"
         required
       />
     </mat-form-field>
+
     <mat-form-field appearance="outline">
       <mat-label>Type</mat-label>
       <mat-select formControlName="type">
@@ -57,6 +60,7 @@
         <mat-option value="other">Other(s)</mat-option>
       </mat-select>
     </mat-form-field>
+
     <mat-label class="file-title">
       Upload only in .png, .jpg, .jpeg format, Other format's not allowed
     </mat-label>
@@ -73,6 +77,7 @@
     <div>
       <img [width]="100" [src]="imageDisplay" alt="" />
     </div>
+
     <button
       mat-raised-button
       color="primary"

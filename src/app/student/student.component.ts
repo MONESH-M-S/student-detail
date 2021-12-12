@@ -47,8 +47,11 @@ export class StudentComponent implements OnInit {
           verticalPosition: 'top',
           panelClass: ['mat-toolbar', 'mat-accent'],
         });
-        this.errorMsg = err.message;
-        console.log(err);
+        if (err.message === 'Password is wrong') {
+          this.errorMsg = 'Invalid email or password';
+        } else {
+          this.errorMsg = err.message;
+        }
       }
     );
     window.setTimeout(() => {
