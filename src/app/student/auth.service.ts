@@ -60,5 +60,5 @@ export class AuthService {
     return this.http.delete<{ message: string }>(
       `http://localhost:3000/user/delete/${id}`
     );
-  }
+    }
 }

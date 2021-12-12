@@ -3,6 +3,9 @@
     <mat-card-title>
       <h1>History</h1>
     </mat-card-title>
+    <mat-card-subtitle>
+      <h4><span>Note: </span>Deleting History Cannot be Retrived</h4>
+    </mat-card-subtitle>
     <div *ngFor="let activity of userActivites">
       <mat-expansion-panel>
         <mat-expansion-panel-header>
@@ -11,7 +14,11 @@
         <p>{{ activity.venue }}</p>
         <img [src]="activity.image" style="width: 100px" alt="" />
         <mat-action-row>
-          <button mat-button color="warn" (click)="onDeleteActivity(activity._id)">
+          <button
+            mat-button
+            color="warn"
+            (click)="onDeleteActivity(activity._id)"
+          >
             <mat-icon>delete</mat-icon>DELETE
           </button>
         </mat-action-row>
