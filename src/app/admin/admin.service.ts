@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Subject } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AdminService {
+  BACKEND_URL = environment.BACKEND_URL;
   isAdmin: boolean = false;
 
   constructor(private fireAuth: AngularFireAuth, private http: HttpClient) {}
@@ -16,22 +17,20 @@ export class AdminService {
   }
 
   getStudents() {
-    return this.http.get<{ user: any[] }>('http://localhost:3000/admin/home');
+    return this.http.get<{ user: any[] }>(`${this.BACKEND_URL}admin/home`);
   }
 
   getStudentDetail(id: string) {
-    return this.http.get<{ user: any }>(
-      `http://localhost:3000/admin/home/${id}`
-    );
+    return this.http.get<{ user: any }>(`${this.BACKEND_URL}admin/home/${id}`);
   }
 
   getStudentActivityDetail(id: string) {
     return this.http.get<{ message: string; activites: any[] }>(
-      `http://localhost:3000/admin/home/user/${id}`
+      `${this.BACKEND_URL}admin/home/user/${id}`
     );
   }
 
   getStudentActivityTable(id: string) {
-    return this.getStudentActivityDetail(id)
+    return this.getStudentActivityDetail(id);
   }
 }

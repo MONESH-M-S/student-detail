@@ -2,11 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  BACKEND_URL = environment.BACKEND_URL;
   firbaseSignup = false;
   errorMsg = '';
   userId: any;
@@ -30,7 +32,7 @@ export class AuthService {
     userData.append('image', image, name);
 
     return this.http.post<{ user: any }>(
-      `http://localhost:3000/student-signup`,
+      `${this.BACKEND_URL}/student-signup`,
       userData
     );
   }
@@ -38,27 +40,27 @@ export class AuthService {
   userLogin(email: string, password: string) {
     const authData = { email: email, password: password };
     return this.http.post<{ message: string; user: any; id: string }>(
-      'http://localhost:3000/',
+      `${this.BACKEND_URL}`,
       authData
     );
   }
 
   postUserData(form: FormData) {
     return this.http.post<{ message: string; data: any }>(
-      `http://localhost:3000/user/activity`,
+      `${this.BACKEND_URL}user/activity`,
       form
     );
   }
 
   getUserActivity(id: string) {
     return this.http.get<{ message: string; activity: any[] }>(
-      `http://localhost:3000/user/getall-activity/${id}`
+      `${this.BACKEND_URL}user/getall-activity/${id}`
     );
   }
 
   deleteActivity(id: string) {
     return this.http.delete<{ message: string }>(
-      `http://localhost:3000/user/delete/${id}`
+      `${this.BACKEND_URL}user/delete/${id}`
     );
-    }
+  }
 }

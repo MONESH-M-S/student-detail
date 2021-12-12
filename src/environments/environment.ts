@@ -12,6 +12,7 @@ export const environment = {
     messagingSenderId: '975787724993',
     appId: '1:975787724993:web:f04cdc92109d48cfe80440',
   },
+  BACKEND_URL: 'http://localhost:3000/',
 };
 
 /*
