@@ -1,27 +1,19 @@
 # StudentDetail
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
+This project was done for the Departments' to track their Student activites.
 
-## Development server
+## Web-app
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+It was build as a `MEAN` app and with `Firebase`.
 
-## Code scaffolding
+### Front-end
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+In the front-end [Angular](https://angular.io) was used for client side rendering.
 
-## Build
+### Back-end
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+At the backend [Node's](https://nodejs.org) ExpressJS was used for accept incoming requsets and sending back the responses, for database [MongoDB](https://mongodb.com) was used and [Firebase](https://firebase.google.com) for admin authentication.
 
-## Running unit tests
+## Further
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+It was currently at `v1.0.0`, more Updates or Bugs will fixed as soon as possible
