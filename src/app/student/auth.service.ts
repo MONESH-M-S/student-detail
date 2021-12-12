@@ -51,9 +51,8 @@ export class AuthService {
   }
 
   getUserActivity(id: string) {
-    return this.http.post<{ message: string; activity: any[]; count: number }>(
-      `http://localhost:3000/user/getall-activity`,
-      id
+    return this.http.get<{ message: string; activity: any[] }>(
+      `http://localhost:3000/user/getall-activity/${id}`
     );
   }
 
