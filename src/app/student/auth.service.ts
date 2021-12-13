@@ -32,7 +32,7 @@ export class AuthService {
     userData.append('image', image, name);
 
     return this.http.post<{ user: any }>(
-      `${this.BACKEND_URL}/student-signup`,
+      `${this.BACKEND_URL}student-signup`,
       userData
     );
   }

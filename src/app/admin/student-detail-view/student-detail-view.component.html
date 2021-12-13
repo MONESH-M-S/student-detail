@@ -2,16 +2,15 @@
   <div class="container">
     <mat-card class="main-card">
       <div class="main-card-img">
-        <img
-          src="{{ '../../../../../assets/IMG-20210226-WA0002.jpg' }}"
-          alt="Profile picture"
-        />
+        <img src="{{ studentDetail.image }}" alt="Profile picture" />
       </div>
       <mat-divider inset></mat-divider>
       <div class="title">
         <mat-card-title>{{ studentDetail.username }}</mat-card-title>
         <mat-card-title>{{ studentDetail.rollno }}</mat-card-title>
-        <mat-card-subtitle>Mentor: <span>{{studentDetail.mentor}}</span></mat-card-subtitle>
+        <mat-card-subtitle
+          >Mentor: <span>{{ studentDetail.mentor }}</span></mat-card-subtitle
+        >
       </div>
       <mat-card-actions>
         <div class="content">
