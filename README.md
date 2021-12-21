@@ -16,4 +16,4 @@ At the backend [Node's](https://nodejs.org) ExpressJS was used for accept incomi
 
 ## Further
 
-It was currently at `v1.0.0`, more Updates or Bugs will fixed as soon as possible
+It was currently at `v1.0.1`, more Updates or Bugs will be fixed as soon as possible
