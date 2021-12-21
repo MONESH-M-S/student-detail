@@ -20,6 +20,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { StudentAddDetailComponent } from './student/student-add-detail/student-add-detail.component';
 import { StudentDetailFormComponent } from './student/student-add-detail/student-detail-form/student-detail-form.component';
 import { HistoryComponent } from './student/history/history.component';
+import { ClubComponent } from './student/student-add-detail/club/club.component';
+import { SportsComponent } from './student/student-add-detail/sports/sports.component';
+import { VacComponent } from './student/student-add-detail/vac/vac.component';
+import { OtherComponent } from './student/student-add-detail/other/other.component';
+import { InternshipComponent } from './student/student-add-detail/internship/internship.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,11 @@ import { HistoryComponent } from './student/history/history.component';
     StudentAddDetailComponent,
     StudentDetailFormComponent,
     HistoryComponent,
+    ClubComponent,
+    SportsComponent,
+    VacComponent,
+    OtherComponent,
+    InternshipComponent,
   ],
   imports: [
     AppRoutingModule,
