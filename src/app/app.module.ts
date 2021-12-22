@@ -25,6 +25,7 @@ import { SportsComponent } from './student/student-add-detail/sports/sports.comp
 import { VacComponent } from './student/student-add-detail/vac/vac.component';
 import { OtherComponent } from './student/student-add-detail/other/other.component';
 import { InternshipComponent } from './student/student-add-detail/internship/internship.component';
+import { DialogComponent } from './student/history/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { InternshipComponent } from './student/student-add-detail/internship/int
     VacComponent,
     OtherComponent,
     InternshipComponent,
+    DialogComponent,
   ],
   imports: [
     AppRoutingModule,

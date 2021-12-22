@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
   selector: 'app-history',
@@ -24,6 +25,18 @@ export class HistoryComponent implements OnInit {
     });
     this.authService.getUserActivity(this.id).subscribe((activity) => {
       this.userActivites = activity.activity;
+    });
+  }
+
+  openDialog(activityId: string) {
+    let dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'yes') {
+        this.onDeleteActivity(activityId);
+      }
     });
   }
 

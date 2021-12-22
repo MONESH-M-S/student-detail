@@ -1,1 +1,51 @@
-<p>club works!</p>
+<div class="container">
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Club-name</mat-label>
+      <input
+        matInput
+        name="event"
+        type="text"
+        placeholder="Event Name"
+        formControlName="event"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Position</mat-label>
+      <mat-select formControlName="type">
+        <mat-option value="secrtary">Secrtary/ Chairperson</mat-option>
+        <mat-option value="treasurer">Treasurer</mat-option>
+        <mat-option value="member">Members</mat-option>
+        <mat-option value="project">Other</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-label class="file-title">
+      Upload only in .png, .jpg, .jpeg format, Other format's not allowed
+    </mat-label>
+    <button
+      class="file"
+      mat-stroked-button
+      color="accent"
+      type="button"
+      (click)="filePicker.click()"
+    >
+      Insert Proof as Image
+    </button>
+    <input type="file" #filePicker (change)="onImagePicked($event)" required />
+    <div>
+      <img [width]="100" [src]="imageDisplay" alt="" />
+    </div>
+
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid"
+      (click)="onSubmit()"
+    >
+      Submit
+    </button>
+  </form>
+</div>
