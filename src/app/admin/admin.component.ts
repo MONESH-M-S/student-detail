@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -15,7 +14,6 @@ export class AdminComponent implements OnInit {
   isAuth: boolean = false;
   constructor(
     private router: Router,
-    private fireAuth: AngularFireAuth,
     private adminService: AdminService,
     private snackbar: MatSnackBar
   ) {}
@@ -23,6 +21,7 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
+    const mentor = form.value.mentor;
     this.isAuth = true;
     this.adminService
       .adminLogin(form.value.email, form.value.password)
@@ -36,7 +35,7 @@ export class AdminComponent implements OnInit {
           panelClass: ['mat-toolbar', 'mat-accent'],
         });
         this.isAuth = false;
-        this.router.navigate(['/admin/home']);
+        this.router.navigate([`/admin/home/${mentor}`]);
       })
       .catch((err: { message: string }) => {
         this.adminService.isAdmin = false;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -10,12 +10,25 @@ import { AdminService } from '../admin.service';
 export class AdminMainComponent implements OnInit {
   studentDetails: any;
   errMsg: string = '';
+  mentor: any;
+  isLoading: boolean = false;
 
-  constructor(private router: Router, private adminService: AdminService) {}
+  constructor(
+    private router: Router,
+    private adminService: AdminService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.adminService.getStudents().subscribe(
+    this.isLoading = true;
+    this.route.params.subscribe((params) => {
+      if (params) {
+        this.mentor = params;
+      }
+    });
+    this.adminService.getStudents(this.mentor).subscribe(
       (data) => {
+        this.isLoading = false;
         this.studentDetails = data;
       },
       (err) => {

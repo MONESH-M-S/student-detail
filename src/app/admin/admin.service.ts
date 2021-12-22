@@ -16,8 +16,11 @@ export class AdminService {
     return this.fireAuth.signInWithEmailAndPassword(email, password);
   }
 
-  getStudents() {
-    return this.http.get<{ user: any[] }>(`${this.BACKEND_URL}admin/home`);
+  getStudents(mentor: string) {
+    return this.http.post<{ user: any[] }>(
+      `${this.BACKEND_URL}admin/home`,
+      mentor
+    );
   }
 
   getStudentDetail(id: string) {

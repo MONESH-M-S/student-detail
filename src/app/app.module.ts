@@ -26,6 +26,7 @@ import { VacComponent } from './student/student-add-detail/vac/vac.component';
 import { OtherComponent } from './student/student-add-detail/other/other.component';
 import { InternshipComponent } from './student/student-add-detail/internship/internship.component';
 import { DialogComponent } from './student/history/dialog/dialog.component';
+import { PrimengModule } from './primeng.module';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { DialogComponent } from './student/history/dialog/dialog.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    PrimengModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,

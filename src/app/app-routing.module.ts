@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: '', component: StudentComponent },
   { path: 'admin', component: AdminComponent },
   {
-    path: 'admin/home',
+    path: 'admin/home/:mentor',
     component: AdminMainComponent,
     canActivate: [AdminGuard],
   },

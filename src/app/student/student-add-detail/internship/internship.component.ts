@@ -38,7 +38,7 @@ export class InternshipComponent implements OnInit {
     this.form = this.formBulider.group({
       event: new FormControl(null, [Validators.required]),
       venue: new FormControl(null, [Validators.required]),
-      mode: new FormControl(null, [Validators.required]),
+      mode: new FormControl(null),
       prize: new FormControl(null, [Validators.required]),
       startDate: new FormControl(null, [Validators.required]),
       endDate: new FormControl(null, [Validators.required]),
