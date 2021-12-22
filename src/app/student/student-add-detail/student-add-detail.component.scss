@@ -16,15 +16,29 @@
         font-size: 17px;
         font-weight: 600;
       }
+
       button {
+        margin-left: 2px;
         .history {
           font-size: 20px;
         }
+        padding: 2 2px;
       }
     }
     .tab {
       width: 100%;
       margin-top: 30px;
     }
+  }
+}
+
+.required {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 18px;
+
+  span {
+    color: red;
   }
 }

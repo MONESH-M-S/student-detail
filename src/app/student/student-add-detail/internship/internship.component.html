@@ -33,6 +33,17 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
+      <mat-label>Internship Stipend (If Provided)</mat-label>
+      <input
+        matInput
+        name="venue"
+        type="stipend"
+        placeholder="Event taken place"
+        formControlName="venue"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
       <mat-label>Enter a date range</mat-label>
       <mat-date-range-input [rangePicker]="picker">
         <input
@@ -57,7 +68,7 @@
       type="button"
       (click)="filePicker.click()"
     >
-      Insert Certificate Image
+      Insert Certificate-Proof Image
     </button>
     <input type="file" #filePicker (change)="onImagePicked($event)" required />
     <div>

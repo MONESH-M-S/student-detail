@@ -13,7 +13,7 @@ import { mimeType } from '../../signup/mime-type.validator';
 @Component({
   selector: 'app-other',
   templateUrl: './other.component.html',
-  styleUrls: ['./other.component.scss']
+  styleUrls: ['./other.component.scss'],
 })
 export class OtherComponent implements OnInit {
   form: FormGroup;
@@ -38,10 +38,8 @@ export class OtherComponent implements OnInit {
     this.form = this.formBulider.group({
       event: new FormControl(null, [Validators.required]),
       venue: new FormControl(null, [Validators.required]),
-      mode: new FormControl(null, [Validators.required]),
-      prize: new FormControl(null, [Validators.required]),
-      date: new FormControl(null, [Validators.required]),
-      type: new FormControl(null, [Validators.required]),
+      startDate: new FormControl(null, [Validators.required]),
+      endDate: new FormControl(null, [Validators.required]),
       image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType],
@@ -68,17 +66,15 @@ export class OtherComponent implements OnInit {
     const f = new FormData();
     f.append('event', this.form.value.event);
     f.append('venue', this.form.value.venue);
-    f.append('mode', this.form.value.mode);
-    f.append('prize', this.form.value.prize);
-    f.append('date', this.form.value.date);
-    f.append('type', this.form.value.type);
+    f.append('startDate', this.form.value.startDate);
+    f.append('endDate', this.form.value.endDate);
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
     if (this.id) {
       this.authService.postUserData(f).subscribe(
         (res) => {
           {
-            this.snackbar.open('Certificate Added Successful!', '', {
+            this.snackbar.open('Added Successful!', '', {
               duration: 4000,
               horizontalPosition: 'end',
               verticalPosition: 'top',
@@ -90,7 +86,7 @@ export class OtherComponent implements OnInit {
         (err) => {
           this.errorMsg = err.message;
           this.isSubmitted = false;
-          this.snackbar.open('Certificate Adding Failed!', '', {
+          this.snackbar.open('Adding Failed!', '', {
             duration: 6000,
             horizontalPosition: 'end',
             verticalPosition: 'top',
