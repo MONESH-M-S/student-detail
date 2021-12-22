@@ -1,6 +1,18 @@
 <div class="container">
   <form [formGroup]="form">
     <mat-form-field appearance="outline">
+      <mat-label>Sport Name</mat-label>
+      <input
+        matInput
+        name="sport"
+        type="text"
+        placeholder="Sport Name"
+        formControlName="sport"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
       <mat-label>Event-name</mat-label>
       <input
         matInput
@@ -51,7 +63,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Level</mat-label>
-      <mat-select formControlName="type">
+      <mat-select formControlName="level">
         <mat-option value="zonal">Zonal Level</mat-option>
         <mat-option value="state">State Level</mat-option>
         <mat-option value="national">National Level</mat-option>

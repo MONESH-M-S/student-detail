@@ -13,7 +13,7 @@ import { mimeType } from '../../signup/mime-type.validator';
 @Component({
   selector: 'app-sports',
   templateUrl: './sports.component.html',
-  styleUrls: ['./sports.component.scss']
+  styleUrls: ['./sports.component.scss'],
 })
 export class SportsComponent implements OnInit {
   form: FormGroup;
@@ -36,12 +36,13 @@ export class SportsComponent implements OnInit {
       }
     });
     this.form = this.formBulider.group({
+      sport: new FormControl(null, [Validators.required]),
       event: new FormControl(null, [Validators.required]),
       venue: new FormControl(null, [Validators.required]),
-      mode: new FormControl(null, [Validators.required]),
       prize: new FormControl(null, [Validators.required]),
-      date: new FormControl(null, [Validators.required]),
-      type: new FormControl(null, [Validators.required]),
+      startDate: new FormControl(null, [Validators.required]),
+      endDate: new FormControl(null, [Validators.required]),
+      level: new FormControl(null, [Validators.required]),
       image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType],
@@ -66,12 +67,13 @@ export class SportsComponent implements OnInit {
       return;
     }
     const f = new FormData();
+    f.append('sport', this.form.value.sport);
     f.append('event', this.form.value.event);
     f.append('venue', this.form.value.venue);
-    f.append('mode', this.form.value.mode);
     f.append('prize', this.form.value.prize);
-    f.append('date', this.form.value.date);
-    f.append('type', this.form.value.type);
+    f.append('startDate', this.form.value.startDate);
+    f.append('endDate', this.form.value.endDate);
+    f.append('level', this.form.value.type);
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
     if (this.id) {
