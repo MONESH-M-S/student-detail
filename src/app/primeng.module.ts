@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { ImageModule } from 'primeng/image';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
-  imports: [ImageModule],
-  exports: [ImageModule],
+  imports: [TableModule],
+  exports: [TableModule],
 })
 export class PrimengModule {}

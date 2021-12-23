@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminMainComponent } from './admin/admin-main/admin-main.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminGuard } from './admin/admin.guard';
+import { MarkSplitupComponent } from './admin/student-detail-view/mark-splitup/mark-splitup.component';
 import { StudentDetailViewComponent } from './admin/student-detail-view/student-detail-view.component';
 import { HistoryComponent } from './student/history/history.component';
 import { SignupComponent } from './student/signup/signup.component';
@@ -22,9 +23,14 @@ const routes: Routes = [
     component: StudentDetailViewComponent,
     canActivate: [AdminGuard],
   },
+  {
+    path: 'admin/home/detail/:id/mark-splitup',
+    component: MarkSplitupComponent,
+    canActivate: [AdminGuard],
+  },
   { path: 'student-signup', component: SignupComponent },
-  {path: 'student/detail-upload/:id', component: StudentAddDetailComponent},
-  {path: 'student/detail-upload/:id/history', component: HistoryComponent},
+  { path: 'student/detail-upload/:id', component: StudentAddDetailComponent },
+  { path: 'student/detail-upload/:id/history', component: HistoryComponent },
   { path: '**', component: StudentComponent },
 ];
 

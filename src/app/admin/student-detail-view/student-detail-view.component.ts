@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./student-detail-view.component.scss'],
 })
 export class StudentDetailViewComponent implements OnInit, OnDestroy {
+  id: string;
   paperCount: number = 0;
   projectCount: number = 0;
   otherCount: number = 0;
@@ -16,13 +17,15 @@ export class StudentDetailViewComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.adminService.isAdmin = true;
     this.route.params.subscribe((params) => {
       if (params) {
+        this.id = params['id'];
         this.adminService.getStudentDetail(params['id']).subscribe(
           (data) => {
             this.studentDetail = data[0];
@@ -50,6 +53,10 @@ export class StudentDetailViewComponent implements OnInit, OnDestroy {
           });
       }
     });
+  }
+
+  onRouteMarkSplitup() {
+    this.router.navigate([`admin/home/detail/${this.id}/mark-splitup`]);
   }
 
   ngOnDestroy(): void {

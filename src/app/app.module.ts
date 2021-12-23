@@ -28,6 +28,7 @@ import { InternshipComponent } from './student/student-add-detail/internship/int
 import { DialogComponent } from './student/history/dialog/dialog.component';
 import { PrimengModule } from './primeng.module';
 import { ImageDialogComponent } from './admin/student-detail-view/detailed-table/image-dialog/image-dialog.component';
+import { MarkSplitupComponent } from './admin/student-detail-view/mark-splitup/mark-splitup.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ImageDialogComponent } from './admin/student-detail-view/detailed-table
     InternshipComponent,
     DialogComponent,
     ImageDialogComponent,
+    MarkSplitupComponent,
   ],
   imports: [
     AppRoutingModule,
