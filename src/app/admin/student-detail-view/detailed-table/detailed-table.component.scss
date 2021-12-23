@@ -41,8 +41,15 @@
         }
       }
 
-      img {
-        width: 80px;
+      .image {
+        cursor: pointer;
+        img {
+          width: 80px;
+        }
+
+        &:hover {
+          opacity: 0.4;
+        }
       }
     }
   }

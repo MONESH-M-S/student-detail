@@ -38,6 +38,6 @@ export class AdminMainComponent implements OnInit {
   }
 
   onCardClick(id: number) {
-    this.router.navigateByUrl(`admin/home/${id}`);
+    this.router.navigateByUrl(`admin/home/detail/${id}`);
   }
 }

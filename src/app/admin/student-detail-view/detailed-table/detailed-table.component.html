@@ -17,12 +17,12 @@
           <p><span>Date</span>: {{ activity.date | date: "dd/MM/yyyy" }}</p>
           <p><span>Mode</span>: {{ activity.mode }}</p>
         </div>
-        <div>
-          <p-image
+        <div class="image">
+          <img
             src="{{ activity.image }}"
             alt="{{ activity.event }}"
-            [preview]="true"
-          ></p-image>
+            (click)="openDialog(activity.image)"
+          />
         </div>
       </mat-card-content>
     </mat-card>

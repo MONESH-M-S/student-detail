@@ -18,7 +18,7 @@ const routes: Routes = [
     canActivate: [AdminGuard],
   },
   {
-    path: 'admin/home/:id',
+    path: 'admin/home/detail/:id',
     component: StudentDetailViewComponent,
     canActivate: [AdminGuard],
   },

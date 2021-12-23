@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from '../../admin.service';
+import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 
 @Component({
   selector: 'app-detailed-table',
@@ -11,7 +13,8 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
   activityDetails: any[];
   constructor(
     private adminService: AdminService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -23,6 +26,15 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
             this.activityDetails = data.activites;
           });
       }
+    });
+  }
+
+  openDialog(image: string) {
+    this.dialog.open(ImageDialogComponent, {
+      width: '550px',
+      data: {
+        image: image,
+      },
     });
   }
 

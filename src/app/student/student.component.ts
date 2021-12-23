@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -15,7 +14,6 @@ export class StudentComponent implements OnInit {
   isAuth: boolean = false;
 
   constructor(
-    private fireAuth: AngularFireAuth,
     private snackbar: MatSnackBar,
     private router: Router,
     private authService: AuthService

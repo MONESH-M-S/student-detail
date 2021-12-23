@@ -27,6 +27,7 @@ import { OtherComponent } from './student/student-add-detail/other/other.compone
 import { InternshipComponent } from './student/student-add-detail/internship/internship.component';
 import { DialogComponent } from './student/history/dialog/dialog.component';
 import { PrimengModule } from './primeng.module';
+import { ImageDialogComponent } from './admin/student-detail-view/detailed-table/image-dialog/image-dialog.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { PrimengModule } from './primeng.module';
     OtherComponent,
     InternshipComponent,
     DialogComponent,
+    ImageDialogComponent,
   ],
   imports: [
     AppRoutingModule,

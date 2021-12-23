@@ -24,7 +24,9 @@ export class AdminService {
   }
 
   getStudentDetail(id: string) {
-    return this.http.get<{ user: any }>(`${this.BACKEND_URL}admin/home/${id}`);
+    return this.http.get<{ user: any }>(
+      `${this.BACKEND_URL}admin/home/detail/${id}`
+    );
   }
 
   getStudentActivityDetail(id: string) {
