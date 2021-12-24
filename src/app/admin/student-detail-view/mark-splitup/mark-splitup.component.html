@@ -8,6 +8,42 @@
       </div>
       <div class="table">
         <h1>mark splitup</h1>
+        <div
+          class="card"
+          styleClass="p-datatable-gridlines"
+          scrollable="true"
+          scrollHeight="400px"
+        >
+          <p-table [value]="details" responsiveLayout="scroll">
+            <ng-template pTemplate="caption">
+              <div class="flex">
+                <button (click)="exportExcel()" mat-button color="primary">
+                  <mat-icon class="download">cloud_download</mat-icon> Excel
+                </button>
+              </div>
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th pSortableColumn="event">
+                  Event <p-sortIcon field="event"></p-sortIcon>
+                </th>
+                <th pSortableColumn="maxiMark">
+                  Maximum Marks <p-sortIcon field="maxiMark"></p-sortIcon>
+                </th>
+                <th pSortableColumn="mark">
+                  Mark Obtained <p-sortIcon field="mark"></p-sortIcon>
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-detail>
+              <tr>
+                <td>{{ detail.event }}</td>
+                <td>{{ detail.maxiMark }}</td>
+                <td>{{ detail.mark }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
       </div>
     </mat-card-content>
   </mat-card>
