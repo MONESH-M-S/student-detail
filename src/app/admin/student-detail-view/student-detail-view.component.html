@@ -22,12 +22,16 @@
     </mat-card>
 
     <div class="expansion">
-      <div class="button">
-        <button (click)="onRouteMarkSplitup()" mat-raised-button color="primary">
-          Mark Splitup <mat-icon>keyboard_arrow_right</mat-icon>
-        </button>
-      </div>
       <mat-card class="expansion-card">
+        <div class="button">
+          <button
+            (click)="onRouteMarkSplitup()"
+            mat-raised-button
+            color="primary"
+          >
+            Mark Splitup <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </div>
         <app-detailed-table></app-detailed-table>
       </mat-card>
     </div>

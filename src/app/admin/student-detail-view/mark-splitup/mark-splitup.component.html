@@ -17,7 +17,13 @@
           <p-table [value]="details" responsiveLayout="scroll">
             <ng-template pTemplate="caption">
               <div class="flex">
-                <button (click)="exportExcel()" mat-button color="primary">
+                <button
+                  (click)="exportExcel()"
+                  mat-button
+                  matTooltip="Download in Excel"
+                  matTooltipPosition="left"
+                  color="primary"
+                >
                   <mat-icon class="download">cloud_download</mat-icon> Excel
                 </button>
               </div>

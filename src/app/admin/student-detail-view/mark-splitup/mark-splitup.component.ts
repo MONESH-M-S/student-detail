@@ -12,6 +12,7 @@ export class MarkSplitupComponent implements OnInit {
     { event: 'sample1', maxiMark: 55, mark: 6 },
     { event: 'sample2', maxiMark: 35, mark: 32 },
     { event: 'sample3', maxiMark: 56, mark: 33 },
+    { event: 'sample3', maxiMark: 56, mark: 33 },
   ];
   constructor(private location: Location) {}
 
