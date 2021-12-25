@@ -4,7 +4,7 @@ This project was done for the Departments' to track their Student activites.
 
 ## Web-app
 
-It was build as a `MEAN` app and with `Firebase`.
+It was build as a `MEAN` app.
 
 ### Front-end
 
