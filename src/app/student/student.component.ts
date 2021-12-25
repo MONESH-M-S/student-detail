@@ -22,7 +22,13 @@ export class StudentComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-    const email = form.value.email;
+    if (!form.value.email && !form.value.password) {
+      return (this.errorMsg = 'Please enter a valid Email & Password');
+    } else if (!form.value.email) {
+      return (this.errorMsg = 'Please enter a valid Email');
+    } else if (!form.value.password) {
+      return (this.errorMsg = 'Please enter a valid Password');
+    }
     this.isAuth = true;
     this.authService.userLogin(form.value.email, form.value.password).subscribe(
       (res) => {
@@ -38,6 +44,7 @@ export class StudentComponent implements OnInit {
         this.router.navigate([`student/detail-upload/${id}`]);
       },
       (err) => {
+        this.errorMsg = 'Invalid Email or Password';
         this.isAuth = false;
         this.snackbar.open('Student Login Failed!', '', {
           duration: 6000,
@@ -45,11 +52,6 @@ export class StudentComponent implements OnInit {
           verticalPosition: 'top',
           panelClass: ['mat-toolbar', 'mat-accent'],
         });
-        if (err.message === 'Password is wrong') {
-          this.errorMsg = 'Invalid email or password';
-        } else {
-          this.errorMsg = err.message;
-        }
       }
     );
     window.setTimeout(() => {

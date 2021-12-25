@@ -21,37 +21,47 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-    const mentor = form.value.mentor;
     this.isAuth = true;
     this.adminService
       .adminLogin(form.value.email, form.value.password)
-      .then((meassage) => {
-        this.adminService.isAdmin = true;
-        this.errorMsg = '';
-        this.snackbar.open('Admin verified!', '', {
-          duration: 4000,
-          horizontalPosition: 'end',
-          verticalPosition: 'top',
-          panelClass: ['mat-toolbar', 'mat-accent'],
-        });
-        this.isAuth = false;
-        this.router.navigate([`/admin/home/${mentor}`]);
-      })
-      .catch((err: { message: string }) => {
-        this.adminService.isAdmin = false;
-        this.isAuth = false;
-        this.snackbar.open('Admin verification Failed!', '', {
-          duration: 6000,
-          horizontalPosition: 'end',
-          verticalPosition: 'top',
-          panelClass: ['mat-toolbar', 'mat-accent'],
-        });
-        this.errorMsg = err.message;
-        console.log(err);
-      });
+      .subscribe(
+        (mentor) => {
+          if (mentor.mentor.length < 1) {
+            this._error();
+            this.errorMsg = 'Invalid Email or Password';
+          } else {
+            console.log(mentor);
+            this.adminService.isAdmin = true;
+            this.errorMsg = '';
+            this.snackbar.open('Admin verified!', '', {
+              duration: 4000,
+              horizontalPosition: 'end',
+              verticalPosition: 'top',
+              panelClass: ['mat-toolbar', 'mat-accent'],
+            });
+            this.isAuth = false;
+            this.router.navigate([`/admin/home/${mentor.mentor[0].name}`]);
+          }
+        },
+        (err) => {
+          this._error();
+          this.errorMsg = err.message;
+        }
+      );
     window.setTimeout(() => {
       this.errorMsg = '';
     }, 6000);
     form.resetForm();
+  }
+
+  private _error() {
+    this.adminService.isAdmin = false;
+    this.isAuth = false;
+    this.snackbar.open('Admin verification Failed!', '', {
+      duration: 6000,
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      panelClass: ['mat-toolbar', 'mat-accent'],
+    });
   }
 }

@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
@@ -13,7 +12,7 @@ export class AuthService {
   errorMsg = '';
   userId: any;
 
-  constructor(private fireAuth: AngularFireAuth, private http: HttpClient) {}
+  constructor( private http: HttpClient) {}
 
   onSignup(
     name: string,

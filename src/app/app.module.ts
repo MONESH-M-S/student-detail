@@ -9,9 +9,6 @@ import { AdminComponent } from './admin/admin.component';
 import { StudentComponent } from './student/student.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminMainComponent } from './admin/admin-main/admin-main.component';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireModule } from '@angular/fire/compat';
-import { environment } from '../environments/environment';
 import { StudentDetailViewComponent } from './admin/student-detail-view/student-detail-view.component';
 import { AdminService } from './admin/admin.service';
 import { DetailedTableComponent } from './admin/student-detail-view/detailed-table/detailed-table.component';
@@ -58,8 +55,6 @@ import { MarkSplitupComponent } from './admin/student-detail-view/mark-splitup/m
     MaterialModule,
     PrimengModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
     HttpClientModule,
     ReactiveFormsModule,
   ],

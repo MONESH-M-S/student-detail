@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -10,10 +10,13 @@ export class AdminService {
   BACKEND_URL = environment.BACKEND_URL;
   isAdmin: boolean = false;
 
-  constructor(private fireAuth: AngularFireAuth, private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-  adminLogin(email: string, password: string) {
-    return this.fireAuth.signInWithEmailAndPassword(email, password);
+  adminLogin(email: string, password: string): Observable<{ mentor: any }> {
+    const detail = { email: email, password: password };
+    return this.http.post<{
+      mentor: any;
+    }>(`${this.BACKEND_URL}mentor/login`, detail);
   }
 
   getStudents(mentor: string) {
