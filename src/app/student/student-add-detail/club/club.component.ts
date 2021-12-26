@@ -37,11 +37,8 @@ export class ClubComponent implements OnInit {
     });
     this.form = this.formBulider.group({
       event: new FormControl(null, [Validators.required]),
-      venue: new FormControl(null, [Validators.required]),
+      position: new FormControl(null, [Validators.required]),
       mode: new FormControl(null, [Validators.required]),
-      prize: new FormControl(null, [Validators.required]),
-      date: new FormControl(null, [Validators.required]),
-      type: new FormControl(null, [Validators.required]),
       image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType],

@@ -66,7 +66,7 @@ export class OtherComponent implements OnInit {
     const f = new FormData();
     f.append('event', this.form.value.event);
     f.append('venue', this.form.value.venue);
-    f.append('startDate', this.form.value.startDate);
+    f.append('date', this.form.value.date);
     f.append('endDate', this.form.value.endDate);
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
