@@ -41,4 +41,9 @@ export class AdminService {
   getStudentActivityTable(id: string) {
     return this.getStudentActivityDetail(id);
   }
+
+  // Marks-splitup
+  getStudentMarkTable(id: string) {
+    return this.http.get<{ mark: any }>(`${this.BACKEND_URL}mark/${id}`);
+  }
 }

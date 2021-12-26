@@ -33,9 +33,6 @@
                 <th pSortableColumn="event">
                   Event <p-sortIcon field="event"></p-sortIcon>
                 </th>
-                <th pSortableColumn="maxiMark">
-                  Maximum Marks <p-sortIcon field="maxiMark"></p-sortIcon>
-                </th>
                 <th pSortableColumn="mark">
                   Mark Obtained <p-sortIcon field="mark"></p-sortIcon>
                 </th>
@@ -43,8 +40,7 @@
             </ng-template>
             <ng-template pTemplate="body" let-detail>
               <tr>
-                <td>{{ detail.event }}</td>
-                <td>{{ detail.maxiMark }}</td>
+                <td class="event-title">{{ detail.event }}</td>
                 <td>{{ detail.mark }}</td>
               </tr>
             </ng-template>

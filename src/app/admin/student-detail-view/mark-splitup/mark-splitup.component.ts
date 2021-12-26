@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import * as FileSaver from 'file-saver';
+import { AdminService } from '../../admin.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-mark-splitup',
@@ -8,15 +10,33 @@ import * as FileSaver from 'file-saver';
   styleUrls: ['./mark-splitup.component.scss'],
 })
 export class MarkSplitupComponent implements OnInit {
-  details: any[] = [
-    { event: 'sample1', maxiMark: 55, mark: 6 },
-    { event: 'sample2', maxiMark: 35, mark: 32 },
-    { event: 'sample3', maxiMark: 56, mark: 33 },
-    { event: 'sample3', maxiMark: 56, mark: 33 },
-  ];
-  constructor(private location: Location) {}
+  details: any[] = [];
+  id: string;
+  constructor(
+    private location: Location,
+    private adminService: AdminService,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      if (params) {
+        this.id = params['id'];
+      }
+    });
+    this.adminService.getStudentMarkTable(this.id).subscribe((data) => {
+      console.log(data.mark[0]);
+      Object.keys(data.mark[0]).forEach((key) => {
+        if (key == '_id' || key == 'creator' || key == '__v') {
+        } else {
+          this.details.push({
+            event: key,
+            mark: data.mark[0][key],
+          });
+        }
+      });
+    });
+  }
 
   goBack() {
     this.location.back();
@@ -41,9 +61,6 @@ export class MarkSplitupComponent implements OnInit {
     const data: Blob = new Blob([buffer], {
       type: EXCEL_TYPE,
     });
-    FileSaver.saveAs(
-      data,
-      fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION
-    );
+    FileSaver.saveAs(data, fileName + '_' + this.id + EXCEL_EXTENSION);
   }
 }
