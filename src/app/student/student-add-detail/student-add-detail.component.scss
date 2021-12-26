@@ -46,3 +46,13 @@
 button.mat-focus-indicator.history.mat-raised-button.mat-button-base.mat-primary {
   padding: 4px 13px;
 }
+
+@media (min-width: 400px) {
+  .title {
+    display: block;
+    h3 {
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+}

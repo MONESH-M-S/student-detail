@@ -3,6 +3,10 @@ mat-card {
   margin: auto;
   height: 90vh;
 
+  .download {
+    margin-top: -5px;
+  }
+
   mat-card-header {
     justify-content: center;
     .title {
