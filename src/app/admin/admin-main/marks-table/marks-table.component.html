@@ -16,7 +16,12 @@
           scrollable="true"
           scrollHeight="400px"
         >
-          <p-table [value]="details" responsiveLayout="scroll">
+          <p-table
+            [value]="details"
+            responsiveLayout="scroll"
+            [scrollable]="true"
+            scrollHeight="500px"
+          >
             <ng-template pTemplate="caption">
               <div class="flex">
                 <button
@@ -28,6 +33,7 @@
                 >
                   <mat-icon class="download">cloud_download</mat-icon> Excel
                 </button>
+                
               </div>
             </ng-template>
             <ng-template pTemplate="header" let-columns>

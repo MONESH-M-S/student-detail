@@ -24,6 +24,7 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
           .getStudentActivityTable(params['id'])
           .subscribe((data) => {
             this.activityDetails = data.activites;
+            console.log(this.activityDetails);
           });
       }
     });

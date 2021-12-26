@@ -1,30 +1,46 @@
-<div *ngIf="activityDetails" class="mat-card-outer">
-  <div class="cards" *ngFor="let activity of activityDetails">
-    <mat-card>
-      <mat-card-title
-        ><div class="title">
-          <h1>{{ activity.event }},</h1>
-          <h3>{{ activity.venue }}</h3>
-        </div></mat-card-title
-      >
-      <mat-divider></mat-divider>
-      <mat-card-content>
-        <div>
-          <p><span>Type</span>: {{ activity.type }}</p>
-          <p><span>Prize</span>: {{ activity.prize }}</p>
-        </div>
-        <div>
-          <p><span>Date</span>: {{ activity.date | date: "dd/MM/yyyy" }}</p>
-          <p><span>Mode</span>: {{ activity.mode }}</p>
-        </div>
-        <div class="image">
-          <img
-            src="{{ activity.image }}"
-            alt="{{ activity.event }}"
-            (click)="openDialog(activity.image)"
-          />
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
-</div>
+<p-table
+  [value]="activityDetails"
+  responsiveLayout="scroll"
+  [scrollable]="true"
+  scrollHeight="500px"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="event">
+        Event <p-sortIcon field="event"></p-sortIcon>
+      </th>
+      <th>Venue</th>
+      <th>Mode</th>
+      <th pSortableColumn="type">
+        Type <p-sortIcon field="type"></p-sortIcon>
+      </th>
+      <th pSortableColumn="prize">
+        Prize <p-sortIcon field="prize"></p-sortIcon>
+      </th>
+      <th pSortableColumn="date">
+        Date <p-sortIcon field="date"></p-sortIcon>
+      </th>
+      <th>Certificate</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-activity>
+    <tr>
+      <td class="event">{{ activity.event | titlecase }}</td>
+      <td class="venue">{{ activity.venue | titlecase }}</td>
+      <td>{{ activity.mode | titlecase }}</td>
+      <td>{{ activity.type | titlecase }}</td>
+      <td>{{ activity.prize | titlecase }}</td>
+      <td>{{ activity.date | date: "dd/MM/yyyy" }}</td>
+      <td class="image">
+        <img
+          [src]="activity.image"
+          [alt]="activity.event"
+          width="100"
+          class="shadow-4"
+          (click)="openDialog(activity.image)"
+          pTooltip="Click to view Larger"
+        />
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class MarkSplitupComponent implements OnInit {
   details: any[] = [];
   id: string;
+  total: number = 0;
   constructor(
     private location: Location,
     private adminService: AdminService,
@@ -30,7 +31,9 @@ export class MarkSplitupComponent implements OnInit {
           key == '_id' ||
           key == 'creator' ||
           key == '__v' ||
-          key == 'obtained'
+          key == 'obtained' ||
+          key == 'name' ||
+          key == 'roll'
         ) {
         } else {
           this.details.push({
