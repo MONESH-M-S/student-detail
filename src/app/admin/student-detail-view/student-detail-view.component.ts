@@ -9,6 +9,7 @@ import { AdminService } from '../admin.service';
 })
 export class StudentDetailViewComponent implements OnInit, OnDestroy {
   id: string;
+  isLoading = false;
   paperCount: number = 0;
   projectCount: number = 0;
   otherCount: number = 0;
@@ -23,6 +24,7 @@ export class StudentDetailViewComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.adminService.isAdmin = true;
+    this.isLoading = true;
     this.route.params.subscribe((params) => {
       if (params) {
         this.id = params['id'];
@@ -53,6 +55,7 @@ export class StudentDetailViewComponent implements OnInit, OnDestroy {
           });
       }
     });
+    this.isLoading = false;
   }
 
   onRouteMarkSplitup() {

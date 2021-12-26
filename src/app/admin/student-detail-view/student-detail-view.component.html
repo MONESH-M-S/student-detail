@@ -1,4 +1,4 @@
-<div class="sizing">
+<div class="sizing" *ngIf="!isLoading">
   <div class="container">
     <mat-card class="main-card">
       <div class="main-card-img">
@@ -37,3 +37,4 @@
     </div>
   </div>
 </div>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
