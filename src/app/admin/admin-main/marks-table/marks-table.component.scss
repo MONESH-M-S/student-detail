@@ -1,0 +1,14 @@
+mat-card {
+  width: 90%;
+  margin: auto;
+  height: 90vh;
+
+  mat-card-header {
+    justify-content: center;
+    .title {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 1.3px;
+    }
+  }
+}

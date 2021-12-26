@@ -42,6 +42,6 @@ export class AdminMainComponent implements OnInit {
   }
 
   onClicked() {
-    
+    this.router.navigateByUrl('admin/show-marks');
   }
 }

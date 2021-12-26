@@ -46,4 +46,13 @@ export class AdminService {
   getStudentMarkTable(id: string) {
     return this.http.get<{ mark: any }>(`${this.BACKEND_URL}mark/${id}`);
   }
+
+  getAllStudentMarks() {
+    return this.http.get<{ marks: any }>(`${this.BACKEND_URL}/marks`);
+  }
+
+  // Get-all users
+  getAllUsers() {
+    return this.http.get<{ users: any }>(`${this.BACKEND_URL}/get-all/users`);
+  }
 }
