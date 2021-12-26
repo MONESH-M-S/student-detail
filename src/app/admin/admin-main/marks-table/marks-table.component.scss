@@ -9,6 +9,19 @@ mat-card {
       font-size: 24px;
       font-weight: 600;
       letter-spacing: 1.3px;
+      margin-bottom: 10px;
+    }
+  }
+  mat-card-content {
+    .name {
+      text-transform: capitalize;
+      font-weight: 500;
     }
   }
 }
+
+mat-spinner {
+    width: 400px;
+    margin: auto;
+    margin-top: 30px;
+  }

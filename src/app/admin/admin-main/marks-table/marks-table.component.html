@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="!isLoading">
   <mat-card>
     <div class="back-button">
       <button (click)="goBack()" mat-button color="warn">
@@ -8,5 +8,58 @@
     <mat-card-header>
       <div class="title">Total Marks</div>
     </mat-card-header>
+    <mat-card-content>
+      <div class="table">
+        <div
+          class="card"
+          styleClass="p-datatable-gridlines"
+          scrollable="true"
+          scrollHeight="400px"
+        >
+          <p-table [value]="details" responsiveLayout="scroll">
+            <ng-template pTemplate="caption">
+              <div class="flex">
+                <button
+                  (click)="exportExcel()"
+                  mat-button
+                  matTooltip="Download as Excel"
+                  matTooltipPosition="left"
+                  color="primary"
+                >
+                  <mat-icon class="download">cloud_download</mat-icon> Excel
+                </button>
+              </div>
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th pSortableColumn="name">
+                  Name <p-sortIcon field="name"></p-sortIcon>
+                </th>
+                <th pSortableColumn="roll">
+                  Roll No. <p-sortIcon field="roll"></p-sortIcon>
+                </th>
+                <th pSortableColumn="total">
+                  Total <p-sortIcon field="total"></p-sortIcon>
+                </th>
+                <th pSortableColumn="obtained">
+                  Obtained Marks <p-sortIcon field="obtained"></p-sortIcon>
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-detail>
+              <tr>
+                <td>
+                  <p>{{ detail.name | titlecase }}</p>
+                </td>
+                <td>{{ detail.roll }}</td>
+                <td>{{ detail.total }}</td>
+                <td>{{ detail.obtained }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </mat-card-content>
   </mat-card>
 </section>
+<mat-spinner *ngIf="isLoading"></mat-spinner>

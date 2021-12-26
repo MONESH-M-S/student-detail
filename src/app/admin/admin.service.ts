@@ -48,11 +48,6 @@ export class AdminService {
   }
 
   getAllStudentMarks() {
-    return this.http.get<{ marks: any }>(`${this.BACKEND_URL}/marks`);
-  }
-
-  // Get-all users
-  getAllUsers() {
-    return this.http.get<{ users: any }>(`${this.BACKEND_URL}/get-all/users`);
+    return this.http.get<{ data: any }>(`${this.BACKEND_URL}marks`);
   }
 }
