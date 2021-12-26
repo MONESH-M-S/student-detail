@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminMainComponent } from './admin/admin-main/admin-main.component';
+import { MarksTableComponent } from './admin/admin-main/marks-table/marks-table.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminGuard } from './admin/admin.guard';
 import { MarkSplitupComponent } from './admin/student-detail-view/mark-splitup/mark-splitup.component';
@@ -13,6 +14,11 @@ import { StudentComponent } from './student/student.component';
 const routes: Routes = [
   { path: '', component: StudentComponent },
   { path: 'admin', component: AdminComponent },
+  {
+    path: 'admin/show-marks',
+    component: MarksTableComponent,
+    canActivate: [AdminGuard],
+  },
   {
     path: 'admin/home/:mentor',
     component: AdminMainComponent,

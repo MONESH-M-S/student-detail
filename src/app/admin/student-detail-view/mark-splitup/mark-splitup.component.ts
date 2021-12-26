@@ -27,7 +27,12 @@ export class MarkSplitupComponent implements OnInit {
     this.adminService.getStudentMarkTable(this.id).subscribe((data) => {
       console.log(data.mark[0]);
       Object.keys(data.mark[0]).forEach((key) => {
-        if (key == '_id' || key == 'creator' || key == '__v') {
+        if (
+          key == '_id' ||
+          key == 'creator' ||
+          key == '__v' ||
+          key == 'obtained'
+        ) {
         } else {
           this.details.push({
             event: key,
