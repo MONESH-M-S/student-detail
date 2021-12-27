@@ -12,7 +12,7 @@ In the front-end [Angular](https://angular.io) was used for client side renderin
 
 ### Back-end
 
-At the backend [Node's](https://nodejs.org) ExpressJS was used for accept incoming requsets and sending back the responses, for database [MongoDB](https://mongodb.com) was used and [Firebase](https://firebase.google.com) for admin authentication.
+At the backend [Node's](https://nodejs.org) `ExpressJS` was used for accept incoming requsets and sending back the responses, for database [MongoDB](https://mongodb.com) was used.
 
 ## Further
 
