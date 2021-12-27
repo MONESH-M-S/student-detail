@@ -17,10 +17,10 @@
       <th pSortableColumn="prize">
         Prize <p-sortIcon field="prize"></p-sortIcon>
       </th>
-      <th pSortableColumn="date">
-        Date <p-sortIcon field="date"></p-sortIcon>
-      </th>
+      <th>Date</th>
       <th>Certificate</th>
+      <th pSortableColumn="mark">Mark<p-sortIcon field="mark"></p-sortIcon></th>
+      <th></th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-activity>
@@ -35,11 +35,22 @@
         <img
           [src]="activity.image"
           [alt]="activity.event"
-          width="100"
+          width="80"
           class="shadow-4"
           (click)="openDialog(activity.image)"
           pTooltip="Click to view Larger"
         />
+      </td>
+      <td>{{ activity.mark }}</td>
+      <td>
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-pencil"
+          class="p-button-rounded p-button-success p-button-outlined"
+          (click)="onEditActivity(activity._id)"
+        ></button>
       </td>
     </tr>
   </ng-template>

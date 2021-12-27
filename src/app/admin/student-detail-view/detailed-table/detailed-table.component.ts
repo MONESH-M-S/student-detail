@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from '../../admin.service';
 import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 
@@ -11,20 +11,22 @@ import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 })
 export class DetailedTableComponent implements OnInit, OnDestroy {
   activityDetails: any[];
+  id: string;
   constructor(
     private adminService: AdminService,
     private route: ActivatedRoute,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       if (params) {
+        this.id = params['id'];
         this.adminService
           .getStudentActivityTable(params['id'])
           .subscribe((data) => {
             this.activityDetails = data.activites;
-            console.log(this.activityDetails);
           });
       }
     });
@@ -37,6 +39,12 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
         image: image,
       },
     });
+  }
+
+  onEditActivity(activityId: string) {
+    if (activityId) {
+      this.router.navigate([`admin/home/detail/${this.id}/edit/${activityId}`]);
+    }
   }
 
   ngOnDestroy() {
