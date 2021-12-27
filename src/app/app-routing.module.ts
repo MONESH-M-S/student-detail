@@ -4,7 +4,6 @@ import { AdminMainComponent } from './admin/admin-main/admin-main.component';
 import { MarksTableComponent } from './admin/admin-main/marks-table/marks-table.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminGuard } from './admin/admin.guard';
-import { EditActivityComponent } from './admin/student-detail-view/detailed-table/edit-activity/edit-activity.component';
 import { MarkSplitupComponent } from './admin/student-detail-view/mark-splitup/mark-splitup.component';
 import { StudentDetailViewComponent } from './admin/student-detail-view/student-detail-view.component';
 import { HistoryComponent } from './student/history/history.component';
@@ -33,11 +32,6 @@ const routes: Routes = [
   {
     path: 'admin/home/detail/:id/mark-splitup',
     component: MarkSplitupComponent,
-    canActivate: [AdminGuard],
-  },
-  {
-    path: 'admin/home/detail/:id/edit/:aid',
-    component: EditActivityComponent,
     canActivate: [AdminGuard],
   },
   { path: 'student-signup', component: SignupComponent },

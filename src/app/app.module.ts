@@ -27,7 +27,6 @@ import { PrimengModule } from './primeng.module';
 import { ImageDialogComponent } from './admin/student-detail-view/detailed-table/image-dialog/image-dialog.component';
 import { MarkSplitupComponent } from './admin/student-detail-view/mark-splitup/mark-splitup.component';
 import { MarksTableComponent } from './admin/admin-main/marks-table/marks-table.component';
-import { EditActivityComponent } from './admin/student-detail-view/detailed-table/edit-activity/edit-activity.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +49,6 @@ import { EditActivityComponent } from './admin/student-detail-view/detailed-tabl
     ImageDialogComponent,
     MarkSplitupComponent,
     MarksTableComponent,
-    EditActivityComponent,
   ],
   imports: [
     AppRoutingModule,

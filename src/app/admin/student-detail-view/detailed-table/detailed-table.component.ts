@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/student/auth.service';
+import { DialogComponent } from 'src/app/student/history/dialog/dialog.component';
 import { AdminService } from '../../admin.service';
 import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 
@@ -17,7 +19,7 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
     private adminService: AdminService,
     private route: ActivatedRoute,
     private dialog: MatDialog,
-    private router: Router
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -44,9 +46,25 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
     });
   }
 
-  onEditActivity(activityId: string) {
+  onDeleteActivity(activityId: string) {
     if (activityId) {
-      this.router.navigate([`admin/home/detail/${this.id}/edit/${activityId}`]);
+      let dialogRef = this.dialog.open(DialogComponent, {
+        width: '250px',
+      });
+
+      dialogRef.afterClosed().subscribe((result) => {
+        if (result === 'yes') {
+          this.authService.deleteActivity(activityId).subscribe((res) => {
+            if (res) {
+              this.adminService
+                .getStudentActivityTable(this.id)
+                .subscribe((data) => {
+                  this.activityDetails = data.activites;
+                });
+            }
+          });
+        }
+      });
     }
   }
 
