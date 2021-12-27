@@ -12,6 +12,7 @@ import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 export class DetailedTableComponent implements OnInit, OnDestroy {
   activityDetails: any[];
   id: string;
+  isLoading: boolean = false;
   constructor(
     private adminService: AdminService,
     private route: ActivatedRoute,
@@ -22,6 +23,7 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       if (params) {
+        this.isLoading = true;
         this.id = params['id'];
         this.adminService
           .getStudentActivityTable(params['id'])
@@ -29,6 +31,7 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
             this.activityDetails = data.activites;
           });
       }
+      this.isLoading = false;
     });
   }
 

@@ -1,8 +1,10 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
 <p-table
   [value]="activityDetails"
   responsiveLayout="scroll"
   [scrollable]="true"
   scrollHeight="500px"
+  *ngIf="!isLoading"
 >
   <ng-template pTemplate="header">
     <tr>
