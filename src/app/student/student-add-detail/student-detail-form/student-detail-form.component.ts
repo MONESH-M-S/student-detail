@@ -42,6 +42,8 @@ export class StudentDetailFormComponent implements OnInit {
       prize: new FormControl(null, [Validators.required]),
       date: new FormControl(null, [Validators.required]),
       type: new FormControl(null, [Validators.required]),
+      activity: new FormControl('paper/project', [Validators.required]),
+      mark: new FormControl(null, [Validators.required]),
       image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType],
@@ -73,6 +75,8 @@ export class StudentDetailFormComponent implements OnInit {
     f.append('date', this.form.value.date);
     f.append('type', this.form.value.type);
     f.append('image', this.form.value.image, this.form.value.event);
+    f.append('activity', this.form.value.activity);
+    f.append('mark', this.form.value.mark);
     f.append('id', this.id);
     if (this.id) {
       this.authService.postUserData(f).subscribe(

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/student/auth.service';
 import { DialogComponent } from 'src/app/student/history/dialog/dialog.component';
 import { AdminService } from '../../admin.service';
@@ -12,7 +12,8 @@ import { ImageDialogComponent } from './image-dialog/image-dialog.component';
   styleUrls: ['./detailed-table.component.scss'],
 })
 export class DetailedTableComponent implements OnInit, OnDestroy {
-  activityDetails: any[];
+  activityDetails: any;
+  deletedActivityDetails: any;
   id: string;
   isLoading: boolean = false;
   constructor(
@@ -54,6 +55,7 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
 
       dialogRef.afterClosed().subscribe((result) => {
         if (result === 'yes') {
+          this.getActivityDetail(activityId);
           this.authService.deleteActivity(activityId).subscribe((res) => {
             if (res) {
               this.adminService
@@ -66,6 +68,28 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
         }
       });
     }
+  }
+
+  getActivityDetail(aId: string) {
+    this.adminService.getUserActivity(this.id, aId).subscribe((result) => {
+      this.deletedActivityDetails = result.activity[0];
+      if (this.deletedActivityDetails.activity == 'paper/project') {
+        if (this.deletedActivityDetails.activity.type == 'paper') {
+          this.activityDetails.paper =
+            this.activityDetails.paper -
+            this.deletedActivityDetails.activity.mark;
+        }
+        else if (this.deletedActivityDetails.activity.type == 'project') {
+          this.activityDetails.project =
+            this.activityDetails.project -
+            this.deletedActivityDetails.activity.mark;
+        }
+        this.activityDetails.total =
+          this.activityDetails.total -
+          this.deletedActivityDetails.activity.total;
+          console.log(this.activityDetails)
+      }
+    });
   }
 
   ngOnDestroy() {

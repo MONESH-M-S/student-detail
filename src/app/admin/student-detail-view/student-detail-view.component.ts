@@ -12,7 +12,7 @@ export class StudentDetailViewComponent implements OnInit, OnDestroy {
   isLoading = false;
   paperCount: number = 0;
   projectCount: number = 0;
-  otherCount: number = 0;
+  total: number = 0;
   studentDetail: any;
   activityArray: any;
 
@@ -38,21 +38,16 @@ export class StudentDetailViewComponent implements OnInit, OnDestroy {
         );
       }
     });
-    this.route.params.subscribe((params) => {
-      if (params) {
-        this.adminService
-          .getStudentActivityDetail(params['id'])
-          .subscribe((data) => {
-            for (let i = 0; i < data.activites.length; i++) {
-              if (data.activites[i].type === 'paper') {
-                this.paperCount++;
-              } else if (data.activites[i].type === 'project') {
-                this.projectCount++;
-              } else if (data.activites[i].type === 'other') {
-                this.otherCount++;
-              }
-            }
-          });
+    this.adminService.getStudentMarkTable(this.id).subscribe((data) => {
+      this.total = data.mark[0].total;
+    });
+    this.adminService.getStudentActivityDetail(this.id).subscribe((data) => {
+      for (let i = 0; i < data.activites.length; i++) {
+        if (data.activites[i].type === 'paper') {
+          this.paperCount++;
+        } else if (data.activites[i].type === 'project') {
+          this.projectCount++;
+        } 
       }
     });
     this.isLoading = false;
@@ -62,9 +57,8 @@ export class StudentDetailViewComponent implements OnInit, OnDestroy {
     this.router.navigate([`admin/home/detail/${this.id}/mark-splitup`]);
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.paperCount = 0;
     this.projectCount = 0;
-    this.otherCount = 0;
   }
 }

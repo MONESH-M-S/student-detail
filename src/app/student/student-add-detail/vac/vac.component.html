@@ -1,7 +1,7 @@
 <div class="container">
   <form [formGroup]="form">
     <mat-form-field appearance="outline">
-      <mat-label>Course-name</mat-label>
+      <mat-label>Course-name(VAC)/ Subject Name(for Gate)</mat-label>
       <input
         matInput
         name="event"
@@ -18,14 +18,24 @@
         matInput
         name="venue"
         type="text"
-        placeholder="Event taken place"
+        placeholder="Course taken platform"
         formControlName="venue"
-        required
       />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Mode (online/offline)</mat-label>
+      <mat-label>Year (Gate exam)</mat-label>
+      <input
+        matInput
+        name="year"
+        type="number"
+        placeholder="Year of Appearance for Gate exam"
+        formControlName="year"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>VAC Mode (online/offline)</mat-label>
       <mat-select formControlName="mode">
         <mat-option value="online">ONLINE</mat-option>
         <mat-option value="offline">OFFLINE</mat-option>
@@ -37,12 +47,31 @@
       <input
         matInput
         formControlName="date"
-        required
         placeholder="mm/dd/yyyy"
         [matDatepicker]="picker"
       />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Mark for This</mat-label>
+      <input
+        matInput
+        name="mark"
+        type="number"
+        placeholder="Mark for this activity"
+        formControlName="mark"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="mode" required>
+        <mat-option value="vac">Value Added Course</mat-option>
+        <mat-option value="gate">Enrolled for GATE Exam</mat-option>
+      </mat-select>
     </mat-form-field>
 
     <mat-label class="file-title">
@@ -60,7 +89,7 @@
       type="button"
       (click)="filePicker.click()"
     >
-      Insert Course-Certificate Image
+      Insert Course-Certificate Image/ Gate Application
     </button>
     <input type="file" #filePicker (change)="onImagePicked($event)" required />
     <div>

@@ -4,7 +4,7 @@
 </div>
 <div mat-dialog-actions>
   <button (click)="onDownload()" mat-stroked-button color="primary">
-    <a [href]="data.image" download>Download</a>
+    <a [href]="data.image" target="_blank" download>Download</a>
   </button>
   <button (click)="onCancel()" mat-flat-button>Cancel</button>
 </div>

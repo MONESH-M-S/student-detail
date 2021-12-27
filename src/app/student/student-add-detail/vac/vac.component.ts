@@ -37,9 +37,13 @@ export class VacComponent implements OnInit {
     });
     this.form = this.formBulider.group({
       name: new FormControl(null, [Validators.required]),
-      venue: new FormControl(null, [Validators.required]),
-      mode: new FormControl(null, [Validators.required]),
-      date: new FormControl(null, [Validators.required]),
+      venue: new FormControl(null),
+      mode: new FormControl(null),
+      year: new FormControl(null),
+      date: new FormControl(null),
+      type: new FormControl(null, [Validators.required]),
+      activity: new FormControl('vac/gate', [Validators.required]),
+      mark: new FormControl(null, [Validators.required]),
       image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType],
@@ -67,9 +71,11 @@ export class VacComponent implements OnInit {
     f.append('event', this.form.value.event);
     f.append('venue', this.form.value.venue);
     f.append('mode', this.form.value.mode);
-    f.append('prize', this.form.value.prize);
+    f.append('year', this.form.value.year);
     f.append('date', this.form.value.date);
     f.append('type', this.form.value.type);
+    f.append('activity', this.form.value.activity);
+    f.append('mark', this.form.value.mark);
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
     if (this.id) {

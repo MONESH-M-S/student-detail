@@ -30,7 +30,6 @@ export class AdminComponent implements OnInit {
             this._error();
             this.errorMsg = 'Invalid Email or Password';
           } else {
-            console.log(mentor);
             this.adminService.isAdmin = true;
             this.errorMsg = '';
             this.snackbar.open('Admin verified!', '', {
