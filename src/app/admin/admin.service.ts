@@ -50,4 +50,11 @@ export class AdminService {
   getAllStudentMarks() {
     return this.http.get<{ data: any }>(`${this.BACKEND_URL}marks`);
   }
+
+  // Get user-single activity
+  getUserActivity(id: string, aid: string) {
+    return this.http.get<{ activity: any }>(
+      `${this.BACKEND_URL}user/${id}/activity/${aid}`
+    );
+  }
 }
