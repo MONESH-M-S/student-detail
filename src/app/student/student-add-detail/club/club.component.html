@@ -4,17 +4,17 @@
       <mat-label>Club-name</mat-label>
       <input
         matInput
-        name="event"
+        name="club"
         type="text"
-        placeholder="Event Name"
-        formControlName="event"
+        placeholder="Club Name"
+        formControlName="club"
         required
       />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Position</mat-label>
-      <mat-select formControlName="type">
+      <mat-select formControlName="position">
         <mat-option value="secrtary">Secrtary/ Chairperson</mat-option>
         <mat-option value="treasurer">Treasurer</mat-option>
         <mat-option value="member">Members</mat-option>
@@ -41,7 +41,12 @@
     </button>
     <input type="file" #filePicker (change)="onImagePicked($event)" required />
     <div>
-      <img [width]="100" [src]="imageDisplay" alt="" />
+      <img
+        style="margin-bottom: 10px"
+        [width]="100"
+        [src]="imageDisplay"
+        alt=""
+      />
     </div>
 
     <button

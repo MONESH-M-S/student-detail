@@ -93,7 +93,12 @@
     </button>
     <input type="file" #filePicker (change)="onImagePicked($event)" required />
     <div>
-      <img [width]="100" [src]="imageDisplay" alt="" />
+      <img
+        style="margin-bottom: 10px"
+        [width]="100"
+        [src]="imageDisplay"
+        alt=""
+      />
     </div>
 
     <button

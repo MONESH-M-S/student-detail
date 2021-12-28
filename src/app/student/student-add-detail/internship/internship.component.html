@@ -46,11 +46,7 @@
     <mat-form-field appearance="outline">
       <mat-label>Enter a date range</mat-label>
       <mat-date-range-input [rangePicker]="picker">
-        <input
-          formControlName="date"
-          matStartDate
-          placeholder="Start date"
-        />
+        <input formControlName="date" matStartDate placeholder="Start date" />
         <input formControlName="endDate" matEndDate placeholder="End date" />
       </mat-date-range-input>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -77,7 +73,12 @@
     </button>
     <input type="file" #filePicker (change)="onImagePicked($event)" required />
     <div>
-      <img [width]="100" [src]="imageDisplay" alt="" />
+      <img
+        [width]="100"
+        style="margin-bottom: 10px"
+        [src]="imageDisplay"
+        alt=""
+      />
     </div>
 
     <button

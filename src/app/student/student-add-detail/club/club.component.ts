@@ -36,9 +36,10 @@ export class ClubComponent implements OnInit {
       }
     });
     this.form = this.formBulider.group({
-      event: new FormControl(null, [Validators.required]),
+      club: new FormControl(null, [Validators.required]),
       position: new FormControl(null, [Validators.required]),
       mode: new FormControl(null, [Validators.required]),
+      activity: new FormControl('club', [Validators.required]),
       image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType],
@@ -63,12 +64,9 @@ export class ClubComponent implements OnInit {
       return;
     }
     const f = new FormData();
-    f.append('event', this.form.value.event);
-    f.append('venue', this.form.value.venue);
-    f.append('mode', this.form.value.mode);
-    f.append('prize', this.form.value.prize);
-    f.append('date', this.form.value.date);
-    f.append('type', this.form.value.type);
+    f.append('club', this.form.value.club);
+    f.append('position', this.form.value.position);
+    f.append('activity', this.form.value.activity);
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
     if (this.id) {

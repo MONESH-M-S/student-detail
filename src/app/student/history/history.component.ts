@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
@@ -9,9 +9,10 @@ import { DialogComponent } from './dialog/dialog.component';
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.scss'],
 })
-export class HistoryComponent implements OnInit {
+export class HistoryComponent implements OnInit, OnDestroy {
   userActivites: any[];
   id: string;
+  isLoading = false;
   constructor(
     private route: ActivatedRoute,
     private authService: AuthService,
@@ -20,11 +21,13 @@ export class HistoryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.route.params.subscribe((params) => {
       this.id = params['id'];
     });
     this.authService.getUserActivity(this.id).subscribe((activity) => {
       this.userActivites = activity.activity;
+      this.isLoading = false;
     });
   }
 
@@ -55,5 +58,9 @@ export class HistoryComponent implements OnInit {
     } else {
       this.router.navigate(['/']);
     }
+  }
+
+  ngOnDestroy() {
+    this.userActivites = [];
   }
 }

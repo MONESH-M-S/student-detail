@@ -6,20 +6,23 @@
     <mat-card-subtitle>
       <h4><span>Note: </span>Deleting History Cannot be Retrived</h4>
     </mat-card-subtitle>
-    <div *ngFor="let activity of userActivites">
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title> {{ activity.event }} </mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>Venue: {{ activity.venue }}</p>
-        <p>Date: {{ activity.date | date: "dd/MM/yyyy" }}</p>
-        <img [src]="activity.image" style="width: 100px" alt="" />
-        <mat-action-row>
-          <button mat-button color="warn" (click)="openDialog(activity._id)">
-            <mat-icon>delete</mat-icon>DELETE
-          </button>
-        </mat-action-row>
-      </mat-expansion-panel>
+    <div *ngIf="!isLoading">
+      <div *ngFor="let activity of userActivites">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title> {{ activity.event }} </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Venue: {{ activity.venue }}</p>
+          <p>Date: {{ activity.date | date: "dd/MM/yyyy" }}</p>
+          <img [src]="activity.image" style="width: 100px" alt="" />
+          <mat-action-row>
+            <button mat-button color="warn" (click)="openDialog(activity._id)">
+              <mat-icon>delete</mat-icon>DELETE
+            </button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </div>
     </div>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
   </mat-card>
 </div>
