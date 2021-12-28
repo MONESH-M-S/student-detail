@@ -12,7 +12,7 @@ export class AuthService {
   errorMsg = '';
   userId: any;
 
-  constructor( private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   onSignup(
     name: string,
@@ -41,6 +41,12 @@ export class AuthService {
     return this.http.post<{ message: string; user: any; id: string }>(
       `${this.BACKEND_URL}`,
       authData
+    );
+  }
+
+  getUser(userId: string) {
+    return this.http.get<{ user: any }>(
+      `${this.BACKEND_URL}admin/home/detail/${userId}`
     );
   }
 

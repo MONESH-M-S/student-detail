@@ -42,6 +42,8 @@ export class SportsComponent implements OnInit {
       prize: new FormControl(null, [Validators.required]),
       date: new FormControl(null, [Validators.required]),
       endDate: new FormControl(null, [Validators.required]),
+      mark: new FormControl(null, [Validators.required]),
+      activity: new FormControl('sports', [Validators.required]),
       type: new FormControl(null, [Validators.required]),
       image: new FormControl(null, {
         validators: [Validators.required],
@@ -73,7 +75,9 @@ export class SportsComponent implements OnInit {
     f.append('prize', this.form.value.prize);
     f.append('date', this.form.value.startDate);
     f.append('endDate', this.form.value.endDate);
+    f.append('mark', this.form.value.mark);
     f.append('type', this.form.value.type);
+    f.append('activity', this.form.value.activity);
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
     if (this.id) {
