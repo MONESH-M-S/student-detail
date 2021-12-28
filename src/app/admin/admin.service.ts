@@ -34,6 +34,13 @@ export class AdminService {
     );
   }
 
+  // get all-admin
+  getAllAdminDetail() {
+    return this.http.get<{ mentors: any }>(
+      `${this.BACKEND_URL}admin/get-all/mentor`
+    );
+  }
+
   getStudentDetail(id: string) {
     return this.http.get<{ user: any }>(
       `${this.BACKEND_URL}admin/home/detail/${id}`

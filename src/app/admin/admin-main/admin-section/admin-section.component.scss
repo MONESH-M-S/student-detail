@@ -1,0 +1,48 @@
+mat-card {
+  width: 90%;
+  margin: auto;
+  height: 90vh;
+
+  mat-card-header {
+    justify-content: center;
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+
+  mat-card-content {
+    width: 70%;
+    margin: auto;
+    .add-new-btn {
+      text-align: right;
+      .btn {
+        mat-icon {
+          margin-top: -4px;
+        }
+      }
+    }
+    .table {
+      h1 {
+        text-align: center;
+        margin: 20px auto;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: 500;
+      }
+      .mentor-name {
+        text-transform: capitalize;
+      }
+
+      td {
+        button {
+          margin-right: 18px;
+        }
+      }
+    }
+  }
+
+  mat-spinner {
+    width: 20%;
+    margin: auto;
+  }
+}

@@ -1,1 +1,73 @@
-<p>admin-section works!</p>
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <div class="card-details" *ngIf="!isLoading">
+    <mat-card-header>
+      <h2>You Can Add, Edit, Delete the Admin's Here!</h2>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="add-new-btn">
+        <button mat-stroked-button color="primary" class="btn">
+          <mat-icon>add</mat-icon>Add Mentor
+        </button>
+      </div>
+      <div class="table">
+        <h1>Mentor(s) List</h1>
+        <p-table
+          [value]="mentors"
+          responsiveLayout="scroll"
+          [scrollable]="true"
+          scrollHeight="430px"
+        >
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th pSortableColumn="name">
+                Name <p-sortIcon field="name"></p-sortIcon>
+              </th>
+              <th>isAdmin</th>
+              <th></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-mentor>
+            <tr>
+              <td>
+                <p class="mentor-name">{{ mentor.name }}</p>
+              </td>
+              <td>
+                <p-tag
+                  *ngIf="mentor.isAdmin"
+                  icon="pi pi-check"
+                  severity="success"
+                  [rounded]="true"
+                ></p-tag>
+                <p-tag
+                  *ngIf="!mentor.isAdmin"
+                  icon="pi pi-times"
+                  severity="danger"
+                  [rounded]="true"
+                ></p-tag>
+              </td>
+              <td>
+                <button
+                  pButton
+                  pRipple
+                  type="button"
+                  icon="pi pi-pencil"
+                  class="p-button-rounded p-button-success p-button-outlined"
+                  pTooltip="Edit"
+                ></button>
+                <button
+                  pButton
+                  pRipple
+                  type="button"
+                  icon="pi pi-trash"
+                  class="p-button-rounded p-button-danger p-button-outlined"
+                  pTooltip="Delete"
+                ></button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </mat-card-content>
+  </div>
+</mat-card>
