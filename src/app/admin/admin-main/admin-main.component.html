@@ -1,10 +1,18 @@
 <section>
-  <div class="mark-show-button">
+  <div class="mark-show-button" *ngIf="isAdmin">
     <button
-      mat-icon-button
+      mat-button
+      color="warn"
+      (click)="onClickedAdmin()"
+      matTooltip="Show Admin"
+    >
+      <mat-icon>person_outline</mat-icon>
+    </button>
+    <button
+      mat-button
       color="primary"
-      (click)="onClicked()"
-      matTooltip="Show Students Mark"
+      (click)="onClickedDetail()"
+      matTooltip="Show Students Data"
     >
       <mat-icon>file_copy</mat-icon>
     </button>

@@ -12,6 +12,8 @@ export class AdminMainComponent implements OnInit {
   errMsg: string = '';
   mentor: any;
   isLoading: boolean = false;
+  isAdmin: boolean = false;
+  id: string;
 
   constructor(
     private router: Router,
@@ -28,8 +30,17 @@ export class AdminMainComponent implements OnInit {
     });
     this.adminService.getStudents(this.mentor).subscribe(
       (data) => {
-        this.isLoading = false;
         this.studentDetails = data;
+      },
+      (err) => {
+        this.errMsg = err;
+      }
+    );
+    this.adminService.getAdminDetails(this.mentor).subscribe(
+      (data) => {
+        this.id = data.mentor[0]._id;
+        this.isAdmin = data.mentor[0].isAdmin;
+        this.isLoading = false;
       },
       (err) => {
         this.errMsg = err;
@@ -41,7 +52,11 @@ export class AdminMainComponent implements OnInit {
     this.router.navigateByUrl(`admin/home/detail/${id}`);
   }
 
-  onClicked() {
+  onClickedDetail() {
     this.router.navigateByUrl('admin/show-marks');
+  }
+
+  onClickedAdmin() {
+    this.router.navigateByUrl(`admin/${this.id}`);
   }
 }

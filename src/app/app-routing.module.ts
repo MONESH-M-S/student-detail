@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminMainComponent } from './admin/admin-main/admin-main.component';
+import { AdminSectionComponent } from './admin/admin-main/admin-section/admin-section.component';
 import { MarksTableComponent } from './admin/admin-main/marks-table/marks-table.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminGuard } from './admin/admin.guard';
@@ -22,6 +23,11 @@ const routes: Routes = [
   {
     path: 'admin/home/:mentor',
     component: AdminMainComponent,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/:id',
+    component: AdminSectionComponent,
     canActivate: [AdminGuard],
   },
   {
