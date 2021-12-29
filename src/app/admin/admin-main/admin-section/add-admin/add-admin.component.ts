@@ -54,14 +54,16 @@ export class AddAdminComponent implements OnInit {
       isAdmin: this.isAdmin,
     };
     this.adminService.addNewAdmin(mentor).subscribe((data) => {
-      if ((data.mentor === 'Admin added')) {
+      if (data.mentor === 'Admin added') {
         this.snackbar.open('Admin Added Successfully!', '', {
           duration: 4000,
           horizontalPosition: 'end',
           verticalPosition: 'top',
           panelClass: ['mat-toolbar', 'mat-accent'],
         });
-        form.reset();
+        window.setTimeout(() => {
+          this.goBack();
+        }, 2000);
       } else {
         this.snackbar.open('Adding Admin Failed!', '', {
           duration: 4000,
@@ -70,7 +72,7 @@ export class AddAdminComponent implements OnInit {
           panelClass: ['mat-toolbar', 'mat-accent'],
         });
         window.setTimeout(() => {
-          form.reset();
+          form.resetForm();
         }, 5000);
       }
     });
