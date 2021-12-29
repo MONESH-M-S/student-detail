@@ -1,7 +1,14 @@
 <mat-card>
-    <div class="back-button">
-        <button (click)="goBack()" mat-button color="warn">
-          <mat-icon>keyboard_arrow_left</mat-icon>Back
-        </button>
-      </div>
+  <div class="back-button">
+    <button (click)="goBack()" mat-button color="warn">
+      <mat-icon>keyboard_arrow_left</mat-icon>Back
+    </button>
+  </div>
+  <mat-card-header>
+    <h2 *ngIf="editMode">Edit - {{ editAdmin.name }}</h2>
+    <h2 *ngIf="!editMode">Add New Admin</h2>
+  </mat-card-header>
+  <mat-card-content>
+    
+  </mat-card-content>
 </mat-card>

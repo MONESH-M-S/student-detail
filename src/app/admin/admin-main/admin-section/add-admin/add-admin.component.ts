@@ -9,7 +9,7 @@ import { AdminService } from 'src/app/admin/admin.service';
   styleUrls: ['./add-admin.component.scss'],
 })
 export class AddAdminComponent implements OnInit {
-  mode: string;
+  editMode: boolean;
   editId: string;
   editAdmin: any;
   constructor(
@@ -22,9 +22,9 @@ export class AddAdminComponent implements OnInit {
     this.route.queryParamMap.subscribe((params: any) => {
       if (params) {
         if (params.params.add) {
-          this.mode = 'add';
+          this.editMode = false;
         } else if (params.params.edit) {
-          this.mode = 'edit';
+          this.editMode = true;
           this.editId = params.params.edit;
           this._editAdmin();
         }

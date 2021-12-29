@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from '../../admin.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-admin-section',
@@ -10,7 +11,11 @@ import { AdminService } from '../../admin.service';
 export class AdminSectionComponent implements OnInit {
   mentors = [];
   isLoading = false;
-  constructor(private adminService: AdminService, private router: Router) {}
+  constructor(
+    private adminService: AdminService,
+    private router: Router,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -28,6 +33,10 @@ export class AdminSectionComponent implements OnInit {
     if (id) {
       this.router.navigate(['admin/add-edit'], { queryParams: { edit: id } });
     }
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   deleteAdmin(id: string) {}
