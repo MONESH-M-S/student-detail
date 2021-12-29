@@ -27,7 +27,7 @@ const routes: Routes = [
     canActivate: [AdminGuard],
   },
   {
-    path: 'admin/add-edit',
+    path: 'admin/add',
     component: AddAdminComponent,
     canActivate: [AdminGuard],
   },

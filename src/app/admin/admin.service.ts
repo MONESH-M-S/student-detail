@@ -34,17 +34,18 @@ export class AdminService {
     );
   }
 
-  // get admin-detail by id
-  getAdminDetailsById(adminId: string) {
-    return this.http.get<{ mentor: any }>(
-      `${this.BACKEND_URL}admin/detail/${adminId}`
-    ); 
-  }
-
   // get all-admin
   getAllAdminDetail() {
     return this.http.get<{ mentors: any }>(
       `${this.BACKEND_URL}admin/get-all/mentor`
+    );
+  }
+
+  // add admin
+  addNewAdmin(mentor: any) {
+    return this.http.post<{ mentor: any }>(
+      `${this.BACKEND_URL}admin/add`,
+      mentor
     );
   }
 
