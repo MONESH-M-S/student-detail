@@ -21,7 +21,7 @@ export class AdminSectionComponent implements OnInit {
   }
 
   addOrEditAdmin() {
-    this.router.navigate(['admin/add-edit']);
+    this.router.navigate(['admin/add-edit'], { queryParams: { add: true } });
   }
 
   editAdmin(id: string) {

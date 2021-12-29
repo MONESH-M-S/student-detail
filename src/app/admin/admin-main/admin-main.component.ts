@@ -36,7 +36,7 @@ export class AdminMainComponent implements OnInit {
         this.errMsg = err;
       }
     );
-    this.adminService.getAdminDetails(this.mentor).subscribe(
+    this.adminService.getAdminDetailsByName(this.mentor).subscribe(
       (data) => {
         this.id = data.mentor[0]._id;
         this.isAdmin = data.mentor[0].isAdmin;

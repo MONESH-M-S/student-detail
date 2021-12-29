@@ -26,12 +26,19 @@ export class AdminService {
     );
   }
 
-  // get admin-detail
-  getAdminDetails(mentor: string) {
+  // get admin-detail by name
+  getAdminDetailsByName(mentor: string) {
     return this.http.post<{ mentor: any }>(
-      `${this.BACKEND_URL}admin/detail`,
+      `${this.BACKEND_URL}admin/detail/name`,
       mentor
     );
+  }
+
+  // get admin-detail by id
+  getAdminDetailsById(adminId: string) {
+    return this.http.get<{ mentor: any }>(
+      `${this.BACKEND_URL}admin/detail/${adminId}`
+    ); 
   }
 
   // get all-admin
