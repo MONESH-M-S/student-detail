@@ -32,7 +32,10 @@ export class SignupComponent implements OnInit {
     this.signupForm = this.formBulider.group({
       name: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      roll: new FormControl(null, [Validators.required]),
+      roll: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
       password: new FormControl(null, [
         Validators.required,
         Validators.minLength(6),
