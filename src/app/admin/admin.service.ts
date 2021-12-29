@@ -49,6 +49,11 @@ export class AdminService {
     );
   }
 
+  // Delete admin
+  deleteAdminById(id: string) {
+    return this.http.delete(`${this.BACKEND_URL}admin/delete/${id}`);
+  }
+
   getStudentDetail(id: string) {
     return this.http.get<{ user: any }>(
       `${this.BACKEND_URL}admin/home/detail/${id}`

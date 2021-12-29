@@ -15,6 +15,7 @@ export class AddAdminComponent implements OnInit {
   editId: string;
   editAdmin: any;
   isLoading = false;
+  isAdmin = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -50,10 +51,10 @@ export class AddAdminComponent implements OnInit {
       email: form.value.email,
       name: form.value.name,
       password: form.value.password,
-      isAdmin: form.value.isAdmin,
+      isAdmin: this.isAdmin,
     };
     this.adminService.addNewAdmin(mentor).subscribe((data) => {
-      if (data.mentor[0]._id) {
+      if ((data.mentor === 'Admin added')) {
         this.snackbar.open('Admin Added Successfully!', '', {
           duration: 4000,
           horizontalPosition: 'end',

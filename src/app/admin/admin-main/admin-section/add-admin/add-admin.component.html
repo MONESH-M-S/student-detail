@@ -31,6 +31,7 @@
           placeholder="Enter a password"
           ngModel
           required
+          minlength="6"
         />
         <mat-hint>Minimum 6 Characters required</mat-hint>
       </mat-form-field>
@@ -38,8 +39,7 @@
       <mat-slide-toggle
         class="toggle"
         color="primary"
-        ngModel
-        required
+        [(ngModel)]="isAdmin"
         name="isAdmin"
         ngModel
       >

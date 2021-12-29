@@ -29,6 +29,7 @@ import { MarkSplitupComponent } from './admin/student-detail-view/mark-splitup/m
 import { MarksTableComponent } from './admin/admin-main/marks-table/marks-table.component';
 import { AdminSectionComponent } from './admin/admin-main/admin-section/admin-section.component';
 import { AddAdminComponent } from './admin/admin-main/admin-section/add-admin/add-admin.component';
+import { DeleteDialogComponent } from './admin/admin-main/admin-section/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AddAdminComponent } from './admin/admin-main/admin-section/add-admin/ad
     MarksTableComponent,
     AdminSectionComponent,
     AddAdminComponent,
+    DeleteDialogComponent,
   ],
   imports: [
     AppRoutingModule,
