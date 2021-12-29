@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/student/auth.service';
 import { DialogComponent } from 'src/app/student/history/dialog/dialog.component';
 import { AdminService } from '../../admin.service';
@@ -16,11 +16,48 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
   deletedActivityDetails: any;
   id: string;
   isLoading: boolean = false;
+
+  tableDataLeft = [
+    {
+      name: 'Paper/Project Table',
+      tooltip: 'Show Paper / Project Presentated Table',
+      params: 'paper'
+    },
+    {
+      name: 'Gate/VAC Table',
+      tooltip: 'Show Gate / VAC Detailed Table',
+      params: 'gate'
+    },
+    {
+      name: 'Club Activites',
+      tooltip: 'Show Club Activity Table',
+      params: 'club'
+    },
+  ];
+  tableDataRight = [
+    {
+      name: 'Intership/Placement',
+      tooltip: 'Show Internship / Placement Detail Table',
+      params: 'intern'
+    },
+    {
+      name: 'Sports Activites',
+      tooltip: 'Show Sports Activity Table',
+      params: 'sports'
+    },
+    {
+      name: 'NCC/Other Activites',
+      tooltip: 'Show NCC / Other Activity Table',
+      params: 'other'
+    },
+  ];
+
   constructor(
     private adminService: AdminService,
     private route: ActivatedRoute,
     private dialog: MatDialog,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -78,8 +115,7 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
           this.activityDetails.paper =
             this.activityDetails.paper -
             this.deletedActivityDetails.activity.mark;
-        }
-        else if (this.deletedActivityDetails.activity.type == 'project') {
+        } else if (this.deletedActivityDetails.activity.type == 'project') {
           this.activityDetails.project =
             this.activityDetails.project -
             this.deletedActivityDetails.activity.mark;
@@ -87,8 +123,14 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
         this.activityDetails.total =
           this.activityDetails.total -
           this.deletedActivityDetails.activity.total;
-          console.log(this.activityDetails)
+        console.log(this.activityDetails);
       }
+    });
+  }
+
+  onClicked(data: string) {
+    this.router.navigate([`admin/home/detail-table/${this.id}`], {
+      queryParams: { table: data },
     });
   }
 

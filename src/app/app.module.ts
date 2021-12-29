@@ -30,6 +30,7 @@ import { MarksTableComponent } from './admin/admin-main/marks-table/marks-table.
 import { AdminSectionComponent } from './admin/admin-main/admin-section/admin-section.component';
 import { AddAdminComponent } from './admin/admin-main/admin-section/add-admin/add-admin.component';
 import { DeleteDialogComponent } from './admin/admin-main/admin-section/delete-dialog/delete-dialog.component';
+import { TableContentComponent } from './admin/student-detail-view/detailed-table/table-content/table-content.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { DeleteDialogComponent } from './admin/admin-main/admin-section/delete-d
     AdminSectionComponent,
     AddAdminComponent,
     DeleteDialogComponent,
+    TableContentComponent,
   ],
   imports: [
     AppRoutingModule,

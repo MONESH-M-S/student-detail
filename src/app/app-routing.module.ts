@@ -6,6 +6,7 @@ import { AdminSectionComponent } from './admin/admin-main/admin-section/admin-se
 import { MarksTableComponent } from './admin/admin-main/marks-table/marks-table.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminGuard } from './admin/admin.guard';
+import { TableContentComponent } from './admin/student-detail-view/detailed-table/table-content/table-content.component';
 import { MarkSplitupComponent } from './admin/student-detail-view/mark-splitup/mark-splitup.component';
 import { StudentDetailViewComponent } from './admin/student-detail-view/student-detail-view.component';
 import { HistoryComponent } from './student/history/history.component';
@@ -39,6 +40,11 @@ const routes: Routes = [
   {
     path: 'admin/home/detail/:id',
     component: StudentDetailViewComponent,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/home/detail-table/:id',
+    component: TableContentComponent,
     canActivate: [AdminGuard],
   },
   {
