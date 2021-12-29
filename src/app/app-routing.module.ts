@@ -43,11 +43,6 @@ const routes: Routes = [
     canActivate: [AdminGuard],
   },
   {
-    path: 'admin/home/detail-table/:id',
-    component: TableContentComponent,
-    canActivate: [AdminGuard],
-  },
-  {
     path: 'admin/home/detail/:id/mark-splitup',
     component: MarkSplitupComponent,
     canActivate: [AdminGuard],

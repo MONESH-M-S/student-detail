@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/student/auth.service';
 import { DialogComponent } from 'src/app/student/history/dialog/dialog.component';
 import { AdminService } from '../../admin.service';
@@ -15,49 +15,16 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
   activityDetails: any;
   deletedActivityDetails: any;
   id: string;
+  queryParams: boolean = false;
+  querystring = '';
   isLoading: boolean = false;
-
-  tableDataLeft = [
-    {
-      name: 'Paper/Project Table',
-      tooltip: 'Show Paper / Project Presentated Table',
-      params: 'paper'
-    },
-    {
-      name: 'Gate/VAC Table',
-      tooltip: 'Show Gate / VAC Detailed Table',
-      params: 'gate'
-    },
-    {
-      name: 'Club Activites',
-      tooltip: 'Show Club Activity Table',
-      params: 'club'
-    },
-  ];
-  tableDataRight = [
-    {
-      name: 'Intership/Placement',
-      tooltip: 'Show Internship / Placement Detail Table',
-      params: 'intern'
-    },
-    {
-      name: 'Sports Activites',
-      tooltip: 'Show Sports Activity Table',
-      params: 'sports'
-    },
-    {
-      name: 'NCC/Other Activites',
-      tooltip: 'Show NCC / Other Activity Table',
-      params: 'other'
-    },
-  ];
+  activity: string;
 
   constructor(
     private adminService: AdminService,
     private route: ActivatedRoute,
     private dialog: MatDialog,
-    private authService: AuthService,
-    private router: Router
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -71,8 +38,8 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
             this.activityDetails = data.activites;
           });
       }
-      this.isLoading = false;
     });
+    this.isLoading = false;
   }
 
   openDialog(image: string) {
@@ -110,31 +77,32 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
   getActivityDetail(aId: string) {
     this.adminService.getUserActivity(this.id, aId).subscribe((result) => {
       this.deletedActivityDetails = result.activity[0];
-      if (this.deletedActivityDetails.activity == 'paper/project') {
-        if (this.deletedActivityDetails.activity.type == 'paper') {
-          this.activityDetails.paper =
-            this.activityDetails.paper -
-            this.deletedActivityDetails.activity.mark;
-        } else if (this.deletedActivityDetails.activity.type == 'project') {
-          this.activityDetails.project =
-            this.activityDetails.project -
-            this.deletedActivityDetails.activity.mark;
-        }
-        this.activityDetails.total =
-          this.activityDetails.total -
-          this.deletedActivityDetails.activity.total;
-        console.log(this.activityDetails);
-      }
     });
   }
 
-  onClicked(data: string) {
-    this.router.navigate([`admin/home/detail-table/${this.id}`], {
-      queryParams: { table: data },
-    });
+  onTabClick(event) {
+    if (event == 1) {
+      this.activity = 'club';
+    } else if (event == 2) {
+      this.activity = 'gate';
+    } else if (event == 3) {
+      this.activity = 'internship';
+    } else if (event == 4) {
+      this.activity = 'sports';
+    } else if (event == 5) {
+      this.activity = 'other';
+    }
+    if (this.activity && this.id) {
+      this.adminService
+        .getStudentActivityDetailByIndex(this.id, this.activity)
+        .subscribe((data) => {
+          this.activityDetails = data;
+        });
+    }
   }
 
   ngOnDestroy() {
     this.activityDetails = [];
+    this.queryParams = false;
   }
 }
