@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from '../../admin.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AdminService } from '../../admin.service';
 export class AdminSectionComponent implements OnInit {
   mentors = [];
   isLoading = false;
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService, private router: Router) {}
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -18,4 +19,16 @@ export class AdminSectionComponent implements OnInit {
       this.isLoading = false;
     });
   }
+
+  addOrEditAdmin() {
+    this.router.navigate(['admin/add-edit']);
+  }
+
+  editAdmin(id: string) {
+    if (id) {
+      this.router.navigate(['admin/add-edit'], { queryParams: { edit: id } });
+    }
+  }
+
+  deleteAdmin(id: string) {}
 }

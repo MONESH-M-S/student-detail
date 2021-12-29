@@ -44,6 +44,7 @@ export class AdminMainComponent implements OnInit {
       },
       (err) => {
         this.errMsg = err;
+        console.log(err)
       }
     );
   }

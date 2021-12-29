@@ -6,7 +6,12 @@
     </mat-card-header>
     <mat-card-content>
       <div class="add-new-btn">
-        <button mat-stroked-button color="primary" class="btn">
+        <button
+          mat-stroked-button
+          color="primary"
+          (click)="addOrEditAdmin()"
+          class="btn"
+        >
           <mat-icon>add</mat-icon>Add Mentor
         </button>
       </div>
@@ -54,6 +59,7 @@
                   icon="pi pi-pencil"
                   class="p-button-rounded p-button-success p-button-outlined"
                   pTooltip="Edit"
+                  (click)="editAdmin(mentor._id)"
                 ></button>
                 <button
                   pButton
@@ -62,6 +68,7 @@
                   icon="pi pi-trash"
                   class="p-button-rounded p-button-danger p-button-outlined"
                   pTooltip="Delete"
+                  (click)="deleteAdmin(mentor._id)"
                 ></button>
               </td>
             </tr>

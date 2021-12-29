@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminMainComponent } from './admin/admin-main/admin-main.component';
+import { AddAdminComponent } from './admin/admin-main/admin-section/add-admin/add-admin.component';
 import { AdminSectionComponent } from './admin/admin-main/admin-section/admin-section.component';
 import { MarksTableComponent } from './admin/admin-main/marks-table/marks-table.component';
 import { AdminComponent } from './admin/admin.component';
@@ -26,7 +27,12 @@ const routes: Routes = [
     canActivate: [AdminGuard],
   },
   {
-    path: 'admin/:id',
+    path: 'admin/add-edit',
+    component: AddAdminComponent,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/:id', 
     component: AdminSectionComponent,
     canActivate: [AdminGuard],
   },
