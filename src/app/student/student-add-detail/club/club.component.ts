@@ -36,7 +36,7 @@ export class ClubComponent implements OnInit {
       }
     });
     this.form = this.formBulider.group({
-      club: new FormControl(null, [Validators.required]),
+      event: new FormControl(null, [Validators.required]),
       position: new FormControl(null, [Validators.required]),
       mark: new FormControl(null, [Validators.required]),
       activity: new FormControl('club', [Validators.required]),
@@ -64,7 +64,7 @@ export class ClubComponent implements OnInit {
       return;
     }
     const f = new FormData();
-    f.append('club', this.form.value.club);
+    f.append('event', this.form.value.event);
     f.append('position', this.form.value.position);
     f.append('activity', this.form.value.activity);
     f.append('mark', this.form.value.mark);
@@ -74,7 +74,7 @@ export class ClubComponent implements OnInit {
       this.authService.postUserData(f).subscribe(
         (res) => {
           {
-            this.snackbar.open('Certificate Added Successful!', '', {
+            this.snackbar.open('Certificate Added Successfully!', '', {
               duration: 4000,
               horizontalPosition: 'end',
               verticalPosition: 'top',

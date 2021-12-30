@@ -82,7 +82,7 @@ export class OtherComponent implements OnInit {
       this.authService.postUserData(f).subscribe(
         (res) => {
           {
-            this.snackbar.open('Added Successful!', '', {
+            this.snackbar.open('Added Successfully!', '', {
               duration: 4000,
               horizontalPosition: 'end',
               verticalPosition: 'top',

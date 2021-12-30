@@ -82,7 +82,7 @@ export class StudentDetailFormComponent implements OnInit {
       this.authService.postUserData(f).subscribe(
         (res) => {
           {
-            this.snackbar.open('Certificate Added Successful!', '', {
+            this.snackbar.open('Certificate Added Successfully!', '', {
               duration: 4000,
               horizontalPosition: 'end',
               verticalPosition: 'top',
