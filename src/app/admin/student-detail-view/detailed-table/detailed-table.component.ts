@@ -25,7 +25,6 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private dialog: MatDialog,
     private authService: AuthService,
-    private router: Router
   ) {}
 
   ngOnInit(): void {
