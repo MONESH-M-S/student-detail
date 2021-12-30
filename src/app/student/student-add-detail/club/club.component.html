@@ -15,11 +15,28 @@
     <mat-form-field appearance="outline">
       <mat-label>Position</mat-label>
       <mat-select formControlName="position">
-        <mat-option value="secrtary">Secrtary/ Chairperson</mat-option>
+        <mat-option value="chairman">Chairman</mat-option>
+        <mat-option value="vice-chairman">Vice-Chairman</mat-option>
+        <mat-option value="secrtary">Secrtary</mat-option>
+        <mat-option value="joint-secrtary"
+          >Joint-Secrtary/Additional Secrtary</mat-option
+        >
         <mat-option value="treasurer">Treasurer</mat-option>
-        <mat-option value="member">Members</mat-option>
-        <mat-option value="project">Other</mat-option>
+        <mat-option value="joint-treasurer">Joint Treasurer</mat-option>
+        <mat-option value="member">Member</mat-option>
       </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Mark for This</mat-label>
+      <input
+        matInput
+        name="mark"
+        type="number"
+        placeholder="Mark for this activity"
+        formControlName="mark"
+        required
+      />
     </mat-form-field>
 
     <mat-label class="file-title">

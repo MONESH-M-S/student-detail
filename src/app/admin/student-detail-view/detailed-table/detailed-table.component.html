@@ -1,12 +1,13 @@
 <section>
-  <mat-tab-group mat-stretch-tab>
-    <mat-tab label="Paper/Project Table">
-      <div class="table">
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Paper/Project Table"
+      ><div class="table">
         <p-table
           [value]="activityDetails"
           responsiveLayout="scroll"
           [scrollable]="true"
           scrollHeight="400px"
+          styleClass="p-datatable-gridlines"
         >
           <ng-template pTemplate="header">
             <tr>
@@ -59,18 +60,18 @@
         </p-table>
       </div>
     </mat-tab>
-    <mat-tab label="Club Activites"> <app-clu-table></app-clu-table> </mat-tab>
-    <mat-tab label="Gate/VAC Table">
-      <app-gate-table></app-gate-table>
+    <mat-tab label="Gate/VAC Table"><app-gate-table></app-gate-table> </mat-tab>
+    <mat-tab label="Club Activity Table"
+      ><app-table-content></app-table-content>
     </mat-tab>
-    <mat-tab label="Internship/Placement Table">
-      <app-intern-table></app-intern-table>
+    <mat-tab label="Internship/Placement Table"
+      ><app-intern-table></app-intern-table>
     </mat-tab>
-    <mat-tab label="Sports Activity Table">
-      <app-sports-table></app-sports-table>
+    <mat-tab label="Sports Activity Table"
+      ><app-sports-table></app-sports-table>
     </mat-tab>
-    <mat-tab label="NCC/Other Activity Table">
-      <app-other-table></app-other-table>
+    <mat-tab label="NCC/Other Activity Table"
+      ><app-other-table></app-other-table>
     </mat-tab>
   </mat-tab-group>
 </section>

@@ -35,23 +35,34 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>VAC Mode (online/offline)</mat-label>
+      <mat-label>VAC Mode</mat-label>
       <mat-select formControlName="mode">
-        <mat-option value="online">ONLINE</mat-option>
-        <mat-option value="offline">OFFLINE</mat-option>
+        <mat-option value="online">Virtual Mode</mat-option>
+        <mat-option value="offline">Physical Mode</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Course Completed date</mat-label>
-      <input
-        matInput
-        formControlName="date"
-        placeholder="mm/dd/yyyy"
-        [matDatepicker]="picker"
-      />
+      <mat-label>Enter a date range for VAC</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input
+          formControlName="date"
+          matStartDate
+          placeholder="Start date"
+          required
+        />
+        <input formControlName="endDate" matEndDate placeholder="End date" />
+      </mat-date-range-input>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type" required>
+        <mat-option value="vac">Value Added Course</mat-option>
+        <mat-option value="gate">Enrolled for GATE Exam</mat-option>
+      </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -66,21 +77,15 @@
       />
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Type</mat-label>
-      <mat-select formControlName="mode" required>
-        <mat-option value="vac">Value Added Course</mat-option>
-        <mat-option value="gate">Enrolled for GATE Exam</mat-option>
-      </mat-select>
-    </mat-form-field>
-
     <mat-label class="file-title">
       Upload only in .png, .jpg, .jpeg format, Other format's not allowed
       <br />
       <br />
       <span style="color: red">Note:</span> Other Format,
-      <a href="https://www.ilovepdf.com/pdf_to_jpg" target="_blank">Click here</a> to Covert pdf
-      to image
+      <a href="https://www.ilovepdf.com/pdf_to_jpg" target="_blank"
+        >Click here</a
+      >
+      to Covert pdf to image
     </mat-label>
     <button
       class="file"

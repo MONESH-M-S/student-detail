@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/student/auth.service';
 import { DialogComponent } from 'src/app/student/history/dialog/dialog.component';
 import { AdminService } from '../../admin.service';
@@ -13,7 +13,7 @@ import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 })
 export class DetailedTableComponent implements OnInit, OnDestroy {
   activityDetails: any;
-  deletedActivityDetails: any;
+  paperActivityDetails: any;
   id: string;
   queryParams: boolean = false;
   querystring = '';
@@ -24,7 +24,8 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
     private adminService: AdminService,
     private route: ActivatedRoute,
     private dialog: MatDialog,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -33,9 +34,9 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
         this.isLoading = true;
         this.id = params['id'];
         this.adminService
-          .getStudentActivityTable(params['id'])
+          .getStudentActivityDetailByIndex(params['id'], 'paper-project')
           .subscribe((data) => {
-            this.activityDetails = data.activites;
+            this.activityDetails = data.activity;
           });
       }
     });
@@ -64,7 +65,7 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
               this.adminService
                 .getStudentActivityTable(this.id)
                 .subscribe((data) => {
-                  this.activityDetails = data.activites;
+                  this.paperActivityDetails = data.activites;
                 });
             }
           });

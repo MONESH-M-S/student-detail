@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AdminService } from 'src/app/admin/admin.service';
 
 @Component({
   selector: 'app-table-content',
@@ -7,14 +8,30 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./table-content.component.scss'],
 })
 export class TableContentComponent implements OnInit {
-  activityDetails = []
-  constructor(private route: ActivatedRoute) {}
+  activityDetails = [];
+  id: string;
+  errMsg: string;
+  constructor(
+    private adminService: AdminService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.route.queryParamMap.subscribe((params: any) => {
+    this.route.params.subscribe((params) => {
       if (params) {
-        console.log(params.params.table);
+        this.id = params['id'];
       }
     });
+    this.adminService
+      .getStudentActivityDetailByIndex(this.id, 'club')
+      .subscribe(
+        (res) => {
+          this.activityDetails = res.activity;
+        },
+        (err) => {
+          console.log(err);
+          this.errMsg = err;
+        }
+      );
   }
 }

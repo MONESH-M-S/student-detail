@@ -39,9 +39,12 @@ export class InternshipComponent implements OnInit {
       event: new FormControl(null, [Validators.required]),
       venue: new FormControl(null, [Validators.required]),
       mode: new FormControl(null),
-      prize: new FormControl(null, [Validators.required]),
-      date: new FormControl(null, [Validators.required]),
-      endDate: new FormControl(null, [Validators.required]),
+      stipend: new FormControl(null),
+      date: new FormControl(null),
+      endDate: new FormControl(null),
+      mark: new FormControl(null, [Validators.required]),
+      type: new FormControl(null, [Validators.required]),
+      activity: new FormControl('internship-placement'),
       image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType],
@@ -69,8 +72,12 @@ export class InternshipComponent implements OnInit {
     f.append('event', this.form.value.event);
     f.append('venue', this.form.value.venue);
     f.append('mode', this.form.value.mode);
-    f.append('prize', this.form.value.prize);
+    f.append('stipend', this.form.value.stipend);
     f.append('date', this.form.value.date);
+    f.append('endDate', this.form.value.endDate);
+    f.append('mark', this.form.value.mark);
+    f.append('type', this.form.value.type);
+    f.append('activity', this.form.value.activity);
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
     if (this.id) {

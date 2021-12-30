@@ -38,7 +38,7 @@ export class ClubComponent implements OnInit {
     this.form = this.formBulider.group({
       club: new FormControl(null, [Validators.required]),
       position: new FormControl(null, [Validators.required]),
-      mode: new FormControl(null, [Validators.required]),
+      mark: new FormControl(null, [Validators.required]),
       activity: new FormControl('club', [Validators.required]),
       image: new FormControl(null, {
         validators: [Validators.required],
@@ -67,6 +67,7 @@ export class ClubComponent implements OnInit {
     f.append('club', this.form.value.club);
     f.append('position', this.form.value.position);
     f.append('activity', this.form.value.activity);
+    f.append('mark', this.form.value.mark);
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
     if (this.id) {

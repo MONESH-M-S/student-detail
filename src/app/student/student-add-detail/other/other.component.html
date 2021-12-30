@@ -1,7 +1,11 @@
 <div class="container">
+  <h3>
+    For Other Activities likes donated blood etc.., <br />
+    Can be Addup Here!
+  </h3>
   <form [formGroup]="form">
     <mat-form-field appearance="outline">
-      <mat-label>Performed Activity/Event-name</mat-label>
+      <mat-label>Performed Activity/Event-name/NCC Camp</mat-label>
       <input
         matInput
         name="event"
@@ -13,7 +17,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Event-Venue (with full address)</mat-label>
+      <mat-label>Event/NCC-Camp Venue (with full address)</mat-label>
       <input
         matInput
         name="venue"
@@ -21,6 +25,17 @@
         placeholder="Event taken place"
         formControlName="venue"
         required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Position in NCC</mat-label>
+      <input
+        matInput
+        name="position"
+        type="text"
+        placeholder="Position in NCC"
+        formControlName="position"
       />
     </mat-form-field>
 
@@ -39,13 +54,35 @@
       <mat-date-range-picker #picker></mat-date-range-picker>
     </mat-form-field>
 
+    <mat-form-field appearance="outline">
+      <mat-label>Mark for This</mat-label>
+      <input
+        matInput
+        name="mark"
+        type="number"
+        placeholder="Mark for this activity"
+        formControlName="mark"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option value="other">Other Activity</mat-option>
+        <mat-option value="ncc">NCC</mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <mat-label class="file-title">
       Upload only in .png, .jpg, .jpeg format, Other format's not allowed
       <br />
       <br />
       <span style="color: red">Note:</span> Other Format,
-      <a href="https://www.ilovepdf.com/pdf_to_jpg" target="_blank">Click here</a> to Covert pdf
-      to image
+      <a href="https://www.ilovepdf.com/pdf_to_jpg" target="_blank"
+        >Click here</a
+      >
+      to Covert pdf to image
     </mat-label>
     <button
       class="file"

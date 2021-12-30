@@ -47,7 +47,7 @@ export class StudentDetailViewComponent implements OnInit, OnDestroy {
           this.paperCount++;
         } else if (data.activites[i].type === 'project') {
           this.projectCount++;
-        } 
+        }
       }
     });
     this.isLoading = false;

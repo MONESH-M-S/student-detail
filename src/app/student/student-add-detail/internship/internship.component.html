@@ -13,7 +13,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Company-Venue (with full address)</mat-label>
+      <mat-label>Company-Address</mat-label>
       <input
         matInput
         name="venue"
@@ -25,7 +25,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Internship Mode (online/offline)</mat-label>
+      <mat-label>Internship Mode (Online/Offline)</mat-label>
       <mat-select formControlName="mode">
         <mat-option value="online">ONLINE</mat-option>
         <mat-option value="offline">OFFLINE</mat-option>
@@ -36,9 +36,9 @@
       <mat-label>Internship Stipend (If Provided)</mat-label>
       <input
         matInput
-        name="venue"
+        name="stipend"
         type="number"
-        placeholder="Event taken place"
+        placeholder="Stipend Amount"
         formControlName="stipend"
       />
     </mat-form-field>
@@ -53,13 +53,35 @@
       <mat-date-range-picker #picker></mat-date-range-picker>
     </mat-form-field>
 
+    <mat-form-field appearance="outline">
+      <mat-label>Mark for This</mat-label>
+      <input
+        matInput
+        name="mark"
+        type="number"
+        placeholder="Mark for this activity"
+        formControlName="mark"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="mode">
+        <mat-option value="internship">Internship</mat-option>
+        <mat-option value="placement"> Placement </mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <mat-label class="file-title">
       Upload only in .png, .jpg, .jpeg format, Other format's not allowed
       <br />
       <br />
       <span style="color: red">Note:</span> Other Format,
-      <a href="https://www.ilovepdf.com/pdf_to_jpg" target="_blank">Click here</a> to Covert pdf
-      to image
+      <a href="https://www.ilovepdf.com/pdf_to_jpg" target="_blank"
+        >Click here</a
+      >
+      to Covert pdf to image
     </mat-label>
 
     <button

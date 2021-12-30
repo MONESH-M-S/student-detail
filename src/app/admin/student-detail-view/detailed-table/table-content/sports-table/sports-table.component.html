@@ -1,1 +1,58 @@
-<p>sports-table works!</p>
+<div class="table">
+  <p-table
+    [value]="activityDetails"
+    responsiveLayout="scroll"
+    [scrollable]="true"
+    scrollHeight="400px"
+    styleClass="p-datatable-gridlines"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Sport</th>
+        <th pSortableColumn="event">
+          Event-Name <p-sortIcon field="event"></p-sortIcon>
+        </th>
+        <th pSortableColumn="level">
+          Prize <p-sortIcon field="level"></p-sortIcon>
+        </th>
+        <th pSortableColumn="level">
+          Level <p-sortIcon field="level"></p-sortIcon>
+        </th>
+        <th>Certificate</th>
+        <th pSortableColumn="mark">
+          Mark<p-sortIcon field="mark"></p-sortIcon>
+        </th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-activity>
+      <tr>
+        <td class="event">{{ activity.sport | titlecase }}</td>
+        <td>{{ activity.event | titlecase }}</td>
+        <td>{{ activity.prize | titlecase }}</td>
+        <td>{{ activity.level | titlecase }}</td>
+        <td class="image">
+          <img
+            [src]="activity.image"
+            [alt]="activity.event"
+            width="80"
+            class="shadow-4"
+            (click)="openDialog(activity.image)"
+            pTooltip="Click to view Larger"
+          />
+        </td>
+        <td>{{ activity.mark }}</td>
+        <td>
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-danger p-button-outlined"
+            (click)="onDeleteActivity(activity._id)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

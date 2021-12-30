@@ -4,16 +4,14 @@
     responsiveLayout="scroll"
     [scrollable]="true"
     scrollHeight="400px"
+    styleClass="p-datatable-gridlines"
   >
     <ng-template pTemplate="header">
       <tr>
         <th pSortableColumn="event">
           Event <p-sortIcon field="event"></p-sortIcon>
         </th>
-        <th pSortableColumn="prize">
-          Prize <p-sortIcon field="prize"></p-sortIcon>
-        </th>
-        <th>Date</th>
+        <th>Position</th>
         <th>Certificate</th>
         <th pSortableColumn="mark">
           Mark<p-sortIcon field="mark"></p-sortIcon>
@@ -23,9 +21,8 @@
     </ng-template>
     <ng-template pTemplate="body" let-activity>
       <tr>
-        <td class="event">{{ activity.event | titlecase }}</td>
-        <td>{{ activity.prize | titlecase }}</td>
-        <td>{{ activity.date | date: "dd/MM/yyyy" }}</td>
+        <td class="event">{{ activity.event | uppercase }}</td>
+        <td>{{ activity.position | titlecase }}</td>
         <td class="image">
           <img
             [src]="activity.image"
