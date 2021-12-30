@@ -30,7 +30,7 @@ export class GateTableComponent implements OnInit {
       }
     });
     this.adminService
-      .getStudentActivityDetailByIndex(this.id, 'club')
+      .getStudentActivityDetailByIndex(this.id, 'vac-gate')
       .subscribe(
         (res) => {
           this.activityDetails = res.activity;

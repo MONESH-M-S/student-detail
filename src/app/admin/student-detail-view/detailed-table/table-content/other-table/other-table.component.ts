@@ -30,7 +30,7 @@ export class OtherTableComponent implements OnInit {
       }
     });
     this.adminService
-      .getStudentActivityDetailByIndex(this.id, 'club')
+      .getStudentActivityDetailByIndex(this.id, 'other-ncc')
       .subscribe(
         (res) => {
           this.activityDetails = res.activity;

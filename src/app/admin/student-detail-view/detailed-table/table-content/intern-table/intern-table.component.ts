@@ -30,7 +30,7 @@ export class InternTableComponent implements OnInit {
       }
     });
     this.adminService
-      .getStudentActivityDetailByIndex(this.id, 'club')
+      .getStudentActivityDetailByIndex(this.id, 'internship-placement')
       .subscribe(
         (res) => {
           this.activityDetails = res.activity;
