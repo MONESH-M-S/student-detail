@@ -59,7 +59,6 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
 
       dialogRef.afterClosed().subscribe((result) => {
         if (result === 'yes') {
-          this.getActivityDetail(activityId);
           this.authService.deleteActivity(activityId).subscribe((res) => {
             if (res) {
               this.adminService
@@ -74,35 +73,7 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
     }
   }
 
-  getActivityDetail(aId: string) {
-    this.adminService.getUserActivity(this.id, aId).subscribe((result) => {
-      this.deletedActivityDetails = result.activity[0];
-    });
-  }
-
-  onTabClick(event) {
-    if (event == 1) {
-      this.activity = 'club';
-    } else if (event == 2) {
-      this.activity = 'gate';
-    } else if (event == 3) {
-      this.activity = 'internship';
-    } else if (event == 4) {
-      this.activity = 'sports';
-    } else if (event == 5) {
-      this.activity = 'other';
-    }
-    if (this.activity && this.id) {
-      this.adminService
-        .getStudentActivityDetailByIndex(this.id, this.activity)
-        .subscribe((data) => {
-          this.activityDetails = data;
-        });
-    }
-  }
-
   ngOnDestroy() {
     this.activityDetails = [];
-    this.queryParams = false;
   }
 }

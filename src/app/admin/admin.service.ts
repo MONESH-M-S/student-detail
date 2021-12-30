@@ -61,8 +61,9 @@ export class AdminService {
   }
 
   getStudentActivityDetailByIndex(id: string, activity: string) {
-    return this.http.get<{ activity: any[] }>(
-      `${this.BACKEND_URL}/admin/home/${id}/${activity}`
+    return this.http.post<{ activity: any[] }>(
+      `${this.BACKEND_URL}/admin/home/${id}`,
+      activity
     );
   }
 

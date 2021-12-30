@@ -31,6 +31,11 @@ import { AdminSectionComponent } from './admin/admin-main/admin-section/admin-se
 import { AddAdminComponent } from './admin/admin-main/admin-section/add-admin/add-admin.component';
 import { DeleteDialogComponent } from './admin/admin-main/admin-section/delete-dialog/delete-dialog.component';
 import { TableContentComponent } from './admin/student-detail-view/detailed-table/table-content/table-content.component';
+import { CluTableComponent } from './admin/student-detail-view/detailed-table/table-content/clu-table/clu-table.component';
+import { SportsTableComponent } from './admin/student-detail-view/detailed-table/table-content/sports-table/sports-table.component';
+import { OtherTableComponent } from './admin/student-detail-view/detailed-table/table-content/other-table/other-table.component';
+import { InternTableComponent } from './admin/student-detail-view/detailed-table/table-content/intern-table/intern-table.component';
+import { GateTableComponent } from './admin/student-detail-view/detailed-table/table-content/gate-table/gate-table.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +62,11 @@ import { TableContentComponent } from './admin/student-detail-view/detailed-tabl
     AddAdminComponent,
     DeleteDialogComponent,
     TableContentComponent,
+    CluTableComponent,
+    SportsTableComponent,
+    OtherTableComponent,
+    InternTableComponent,
+    GateTableComponent,
   ],
   imports: [
     AppRoutingModule,
