@@ -24,7 +24,7 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
     private adminService: AdminService,
     private route: ActivatedRoute,
     private dialog: MatDialog,
-    private authService: AuthService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -62,9 +62,9 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
           this.authService.deleteActivity(activityId).subscribe((res) => {
             if (res) {
               this.adminService
-                .getStudentActivityTable(this.id)
+                .getStudentActivityDetailByIndex(this.id, 'paper-project')
                 .subscribe((data) => {
-                  this.paperActivityDetails = data.activites;
+                  this.activityDetails = data.activity;
                 });
             }
           });

@@ -68,9 +68,9 @@ export class InternTableComponent implements OnInit {
           this.authService.deleteActivity(activityId).subscribe((res) => {
             if (res) {
               this.adminService
-                .getStudentActivityTable(this.id)
+                .getStudentActivityDetailByIndex(this.id, 'internship-placement')
                 .subscribe((data) => {
-                  this.paperActivityDetails = data.activites;
+                  this.activityDetails = data.activity;
                 });
             }
           });
