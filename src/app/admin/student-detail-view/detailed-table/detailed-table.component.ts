@@ -38,8 +38,8 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
             this.activityDetails = data.activity;
           });
       }
+      this.isLoading = false;
     });
-    this.isLoading = false;
   }
 
   openDialog(image: string) {

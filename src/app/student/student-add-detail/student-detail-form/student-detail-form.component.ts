@@ -42,7 +42,7 @@ export class StudentDetailFormComponent implements OnInit {
       prize: new FormControl(null, [Validators.required]),
       date: new FormControl(null, [Validators.required]),
       type: new FormControl(null, [Validators.required]),
-      activity: new FormControl('paper/project', [Validators.required]),
+      activity: new FormControl('paper-project', [Validators.required]),
       mark: new FormControl(null, [Validators.required]),
       image: new FormControl(null, {
         validators: [Validators.required],
