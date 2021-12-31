@@ -16,6 +16,7 @@ export class TableContentComponent implements OnInit {
   id: string;
   errMsg: string;
   paperActivityDetails: any[];
+  isLoading: boolean = false;
   constructor(
     private adminService: AdminService,
     private route: ActivatedRoute,
@@ -24,6 +25,7 @@ export class TableContentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.route.params.subscribe((params) => {
       if (params) {
         this.id = params['id'];
@@ -34,10 +36,13 @@ export class TableContentComponent implements OnInit {
       .subscribe(
         (res) => {
           this.activityDetails = res.activity;
+          this.isLoading = false
         },
         (err) => {
           console.log(err);
           this.errMsg = err;
+          console.log(err)
+          this.isLoading = false;
         }
       );
   }

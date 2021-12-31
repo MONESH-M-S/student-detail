@@ -1,4 +1,5 @@
-<div class="table">
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div class="table" *ngIf="!isLoading">
   <p-table
     [value]="activityDetails"
     responsiveLayout="scroll"
