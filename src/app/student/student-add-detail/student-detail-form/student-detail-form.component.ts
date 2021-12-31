@@ -89,6 +89,7 @@ export class StudentDetailFormComponent implements OnInit {
               panelClass: ['mat-toolbar', 'mat-accent'],
             });
             this.isSubmitted = false;
+            this.imageDisplay = ''
           }
         },
         (err) => {
@@ -101,8 +102,9 @@ export class StudentDetailFormComponent implements OnInit {
             panelClass: ['mat-toolbar', 'mat-accent'],
           });
         }
-      );
-      window.setTimeout(() => {
+        );
+        window.setTimeout(() => {
+        this.imageDisplay = ''
         this.errorMsg = '';
       }, 6000);
       this.form.reset();

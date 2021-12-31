@@ -89,6 +89,7 @@ export class OtherComponent implements OnInit {
               panelClass: ['mat-toolbar', 'mat-accent'],
             });
             this.isSubmitted = false;
+            this.imageDisplay = '';
           }
         },
         (err) => {
@@ -103,6 +104,7 @@ export class OtherComponent implements OnInit {
         }
       );
       window.setTimeout(() => {
+        this.imageDisplay = '';
         this.errorMsg = '';
       }, 6000);
       this.form.reset();
