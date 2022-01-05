@@ -80,18 +80,29 @@ export class SportsComponent implements OnInit {
     f.append('activity', this.form.value.activity);
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
+    const markForUpdate = this.form.value.mark;
+    const typeForUpdate = this.form.value.activity;
     if (this.id) {
       this.authService.postUserData(f).subscribe(
         (res) => {
           {
-            this.snackbar.open('Certificate Added Successfully!', '', {
-              duration: 4000,
-              horizontalPosition: 'end',
-              verticalPosition: 'top',
-              panelClass: ['mat-toolbar', 'mat-accent'],
-            });
-            this.isSubmitted = false;
-            this.imageDisplay = '';
+            this.authService
+              .updateUserMark(typeForUpdate, markForUpdate, this.id)
+              .subscribe(
+                (res) => {
+                  this.snackbar.open('Certificate Added Successfully!', '', {
+                    duration: 4000,
+                    horizontalPosition: 'end',
+                    verticalPosition: 'top',
+                    panelClass: ['mat-toolbar', 'mat-accent'],
+                  });
+                  this.isSubmitted = false;
+                  this.imageDisplay = '';
+                },
+                (err) => {
+                  console.log(err);
+                }
+              );
           }
         },
         (err) => {

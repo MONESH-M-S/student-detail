@@ -78,24 +78,35 @@ export class OtherComponent implements OnInit {
     f.append('activity', this.form.value.activity);
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
+    const markForUpdate = this.form.value.mark;
+    const typeForUpdate = 'other_and_ncc';
     if (this.id) {
       this.authService.postUserData(f).subscribe(
         (res) => {
           {
-            this.snackbar.open('Added Successfully!', '', {
-              duration: 4000,
-              horizontalPosition: 'end',
-              verticalPosition: 'top',
-              panelClass: ['mat-toolbar', 'mat-accent'],
-            });
-            this.isSubmitted = false;
-            this.imageDisplay = '';
+            this.authService
+              .updateUserMark(typeForUpdate, markForUpdate, this.id)
+              .subscribe(
+                (res) => {
+                  this.snackbar.open('Certificate Added Successfully!', '', {
+                    duration: 4000,
+                    horizontalPosition: 'end',
+                    verticalPosition: 'top',
+                    panelClass: ['mat-toolbar', 'mat-accent'],
+                  });
+                  this.isSubmitted = false;
+                  this.imageDisplay = '';
+                },
+                (err) => {
+                  console.log(err);
+                }
+              );
           }
         },
         (err) => {
           this.errorMsg = err.message;
           this.isSubmitted = false;
-          this.snackbar.open('Adding Failed!', '', {
+          this.snackbar.open('Certificate Adding Failed!', '', {
             duration: 6000,
             horizontalPosition: 'end',
             verticalPosition: 'top',

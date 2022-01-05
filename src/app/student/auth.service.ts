@@ -68,4 +68,12 @@ export class AuthService {
       `${this.BACKEND_URL}user/delete/${id}`
     );
   }
+
+  updateUserMark(activity: string, updated: number, id: string) {
+    const updateMark = { mark: updated };
+    return this.http.put(
+      `${this.BACKEND_URL}update/mark/${activity}/${id}`,
+      updateMark
+    );
+  }
 }

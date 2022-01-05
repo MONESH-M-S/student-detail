@@ -37,6 +37,7 @@ export class OtherTableComponent implements OnInit {
       .subscribe(
         (res) => {
           this.activityDetails = res.activity;
+          console.log(this.activityDetails)
           this.isLoading = false
         },
         (err) => {

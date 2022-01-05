@@ -4,10 +4,10 @@
       <mat-label>Club-name</mat-label>
       <input
         matInput
-        name="club"
+        name="event"
         type="text"
         placeholder="Club Name"
-        formControlName="club"
+        formControlName="event"
         required
       />
     </mat-form-field>
@@ -56,7 +56,7 @@
       type="button"
       (click)="filePicker.click()"
     >
-      Insert Proof as Image
+      Insert Proof
     </button>
     <input type="file" #filePicker (change)="onImagePicked($event)" required />
     <div>

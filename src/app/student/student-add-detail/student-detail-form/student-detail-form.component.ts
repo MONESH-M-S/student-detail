@@ -78,18 +78,29 @@ export class StudentDetailFormComponent implements OnInit {
     f.append('activity', this.form.value.activity);
     f.append('mark', this.form.value.mark);
     f.append('id', this.id);
+    const markForUpdate = this.form.value.mark;
+    const typeForUpdate = this.form.value.type;
     if (this.id) {
       this.authService.postUserData(f).subscribe(
         (res) => {
           {
-            this.snackbar.open('Certificate Added Successfully!', '', {
-              duration: 4000,
-              horizontalPosition: 'end',
-              verticalPosition: 'top',
-              panelClass: ['mat-toolbar', 'mat-accent'],
-            });
-            this.isSubmitted = false;
-            this.imageDisplay = ''
+            this.authService
+              .updateUserMark(typeForUpdate, markForUpdate, this.id)
+              .subscribe(
+                (res) => {
+                  this.snackbar.open('Certificate Added Successfully!', '', {
+                    duration: 4000,
+                    horizontalPosition: 'end',
+                    verticalPosition: 'top',
+                    panelClass: ['mat-toolbar', 'mat-accent'],
+                  });
+                  this.isSubmitted = false;
+                  this.imageDisplay = '';
+                },
+                (err) => {
+                  console.log(err);
+                }
+              );
           }
         },
         (err) => {
@@ -102,9 +113,9 @@ export class StudentDetailFormComponent implements OnInit {
             panelClass: ['mat-toolbar', 'mat-accent'],
           });
         }
-        );
-        window.setTimeout(() => {
-        this.imageDisplay = ''
+      );
+      window.setTimeout(() => {
+        this.imageDisplay = '';
         this.errorMsg = '';
       }, 6000);
       this.form.reset();
