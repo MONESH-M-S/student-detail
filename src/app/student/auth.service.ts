@@ -64,7 +64,7 @@ export class AuthService {
   }
 
   deleteActivity(id: string) {
-    return this.http.delete<{ message: string }>(
+    return this.http.delete<{activity: any, message: string }>(
       `${this.BACKEND_URL}user/delete/${id}`
     );
   }

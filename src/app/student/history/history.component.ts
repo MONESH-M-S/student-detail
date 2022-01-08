@@ -45,7 +45,21 @@ export class HistoryComponent implements OnInit, OnDestroy {
 
   onDeleteActivity(activityId: string) {
     this.authService.deleteActivity(activityId).subscribe((res) => {
+      let activity: string;
+      let mark = 0 - res.activity.mark;
+      let id = res.activity.creator;
       if (res) {
+        if (res.activity.type === 'paper') {
+          this.authService.updateUserMark('paper', mark, id);
+        } else if (res.activity.type === 'project') {
+          this.authService.updateUserMark('project', mark, id);
+        } else if (res.activity.activity === 'club') {
+          this.authService.updateUserMark('club', mark, id);
+        } else {
+          activity = res.activity.activityForDeleting;
+          this.authService.updateUserMark(activity, mark, id);
+        }
+        console.log(activity, mark, id);
         this.authService.getUserActivity(this.id).subscribe((activity) => {
           this.userActivites = activity.activity;
         });

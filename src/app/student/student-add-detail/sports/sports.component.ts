@@ -44,6 +44,7 @@ export class SportsComponent implements OnInit {
       endDate: new FormControl(null, [Validators.required]),
       mark: new FormControl(null, [Validators.required]),
       activity: new FormControl('sports', [Validators.required]),
+      activityForDeleting: new FormControl('sports'),
       level: new FormControl(null, [Validators.required]),
       image: new FormControl(null, {
         validators: [Validators.required],
@@ -78,6 +79,7 @@ export class SportsComponent implements OnInit {
     f.append('mark', this.form.value.mark);
     f.append('level', this.form.value.level);
     f.append('activity', this.form.value.activity);
+    f.append('activityForDeleting', this.form.value.activityForDeleting);
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
     const markForUpdate = this.form.value.mark;

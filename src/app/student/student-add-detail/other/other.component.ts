@@ -44,6 +44,7 @@ export class OtherComponent implements OnInit {
       mark: new FormControl(null, [Validators.required]),
       type: new FormControl(null, [Validators.required]),
       activity: new FormControl('other-ncc', [Validators.required]),
+      activityForDeleting: new FormControl('other_and_ncc'),
       image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType],
@@ -76,6 +77,7 @@ export class OtherComponent implements OnInit {
     f.append('mark', this.form.value.mark);
     f.append('type', this.form.value.type);
     f.append('activity', this.form.value.activity);
+    f.append('activityForDeleting', this.form.value.activityForDeleting);
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
     const markForUpdate = this.form.value.mark;

@@ -45,6 +45,7 @@ export class InternshipComponent implements OnInit {
       mark: new FormControl(null, [Validators.required]),
       type: new FormControl(null, [Validators.required]),
       activity: new FormControl('internship-placement'),
+      activityForDeleting: new FormControl('internship_and_placement'),
       image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType],
@@ -78,6 +79,7 @@ export class InternshipComponent implements OnInit {
     f.append('mark', this.form.value.mark);
     f.append('type', this.form.value.type);
     f.append('activity', this.form.value.activity);
+    f.append('activityForDeleting', this.form.value.activityForDeleting);
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
     const markForUpdate = this.form.value.mark;
