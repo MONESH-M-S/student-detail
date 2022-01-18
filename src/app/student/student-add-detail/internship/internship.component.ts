@@ -67,6 +67,11 @@ export class InternshipComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
+
+    if (this.form.value.stipend == null) {
+      this.form.value.stipend = 0;
+    }
+
     const f = new FormData();
     f.append('event', this.form.value.event);
     f.append('venue', this.form.value.venue);
@@ -81,13 +86,12 @@ export class InternshipComponent implements OnInit {
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
     const markForUpdate = this.form.value.mark;
-    const typeForUpdate = 'internship_and_placement';
     if (this.id) {
       this.authService.postUserData(f).subscribe(
         (res) => {
           {
             this.authService
-              .updateUserMark(typeForUpdate, markForUpdate, this.id)
+              .updateUserMark('internship_and_placement', markForUpdate, this.id)
               .subscribe(
                 (res) => {
                   this.snackbar.open('Certificate Added Successfully!', '', {

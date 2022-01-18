@@ -84,13 +84,12 @@ export class VacComponent implements OnInit {
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
     const markForUpdate = this.form.value.mark;
-    const typeForUpdate = 'vac_and_gate';
     if (this.id) {
       this.authService.postUserData(f).subscribe(
         (res) => {
           {
             this.authService
-              .updateUserMark(typeForUpdate, markForUpdate, this.id)
+              .updateUserMark('vac_and_gate', markForUpdate, this.id)
               .subscribe(
                 (res) => {
                   this.snackbar.open('Certificate Added Successfully!', '', {

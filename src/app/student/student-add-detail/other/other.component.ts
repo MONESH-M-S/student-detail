@@ -79,13 +79,12 @@ export class OtherComponent implements OnInit {
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
     const markForUpdate = this.form.value.mark;
-    const typeForUpdate = 'other_and_ncc';
     if (this.id) {
       this.authService.postUserData(f).subscribe(
         (res) => {
           {
             this.authService
-              .updateUserMark(typeForUpdate, markForUpdate, this.id)
+              .updateUserMark('other_and_ncc', markForUpdate, this.id)
               .subscribe(
                 (res) => {
                   this.snackbar.open('Certificate Added Successfully!', '', {

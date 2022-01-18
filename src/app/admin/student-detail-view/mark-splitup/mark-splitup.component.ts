@@ -31,7 +31,6 @@ export class MarkSplitupComponent implements OnInit {
           key == '_id' ||
           key == 'creator' ||
           key == '__v' ||
-          key == 'obtained' ||
           key == 'name' ||
           key == 'roll'
         ) {

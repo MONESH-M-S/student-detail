@@ -71,13 +71,12 @@ export class ClubComponent implements OnInit {
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
     const markForUpdate = this.form.value.mark;
-    const typeForUpdate = this.form.value.activity;
     if (this.id) {
       this.authService.postUserData(f).subscribe(
         (res) => {
           {
             this.authService
-              .updateUserMark(typeForUpdate, markForUpdate, this.id)
+              .updateUserMark('club', markForUpdate, this.id)
               .subscribe(
                 (res) => {
                   this.snackbar.open('Certificate Added Successfully!', '', {

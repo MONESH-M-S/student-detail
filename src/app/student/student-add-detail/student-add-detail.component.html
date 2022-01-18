@@ -3,24 +3,26 @@
     <mat-card>
       <div class="title">
         <h3>Hi {{ username | titlecase }}, Upload Your Details Here</h3>
-        <button
-          mat-stroked-button
-          class="history"
-          color="accent"
-          (click)="onClickMarkSplitupButton()"
-          matTooltip="View Mark Splitup"
-        >
-          Mark-Splitup <mat-icon> insert_drive_file</mat-icon>
-        </button>
-        <button
-          mat-stroked-button
-          class="history"
-          color="primary"
-          (click)="onClickHistoryButton()"
-          matTooltip="Show History"
-        >
-          History <mat-icon>update</mat-icon>
-        </button>
+        <div class="button">
+          <button
+            mat-stroked-button
+            class="history"
+            color="accent"
+            (click)="onClickMarkSplitupButton()"
+            matTooltip="View Mark Splitup"
+          >
+            Mark-Splitup <mat-icon> insert_drive_file</mat-icon>
+          </button>
+          <button
+            mat-stroked-button
+            class="history"
+            color="primary"
+            (click)="onClickHistoryButton()"
+            matTooltip="Show History"
+          >
+            History <mat-icon>update</mat-icon>
+          </button>
+        </div>
       </div>
       <div class="required">Input box with <span>*</span> is required!</div>
       <div class="tab">
