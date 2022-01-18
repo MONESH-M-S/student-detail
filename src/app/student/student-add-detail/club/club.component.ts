@@ -39,7 +39,7 @@ export class ClubComponent implements OnInit {
       event: new FormControl(null, [Validators.required]),
       position: new FormControl(null, [Validators.required]),
       mark: new FormControl(null, [Validators.required]),
-      activity: new FormControl('club', [Validators.required]),
+      activity: new FormControl('club'),
       image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType],

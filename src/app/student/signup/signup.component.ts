@@ -35,6 +35,7 @@ export class SignupComponent implements OnInit {
       roll: new FormControl(null, [
         Validators.required,
         Validators.minLength(8),
+        Validators.maxLength(8),
       ]),
       password: new FormControl(null, [
         Validators.required,

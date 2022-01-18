@@ -78,6 +78,7 @@ export class SportsComponent implements OnInit {
     f.append('mark', this.form.value.mark);
     f.append('level', this.form.value.level);
     f.append('activity', this.form.value.activity);
+    f.append('activityForDeleting', 'sports');
     f.append('image', this.form.value.image, this.form.value.event);
     f.append('id', this.id);
     const markForUpdate = this.form.value.mark;
