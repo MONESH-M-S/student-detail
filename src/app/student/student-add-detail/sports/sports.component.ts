@@ -44,6 +44,7 @@ export class SportsComponent implements OnInit {
       endDate: new FormControl(null, [Validators.required]),
       mark: new FormControl(null, [Validators.required]),
       activity: new FormControl('sports', [Validators.required]),
+      activityForDeleting: new FormControl('sports'),
       level: new FormControl(null, [Validators.required]),
       image: new FormControl(null, {
         validators: [Validators.required],
