@@ -37,12 +37,12 @@ export class GateTableComponent implements OnInit {
       .subscribe(
         (res) => {
           this.activityDetails = res.activity;
-          this.isLoading = false
+          this.isLoading = false;
         },
         (err) => {
           console.log(err);
           this.errMsg = err;
-          console.log(err)
+          console.log(err);
           this.isLoading = false;
         }
       );
@@ -66,6 +66,12 @@ export class GateTableComponent implements OnInit {
       dialogRef.afterClosed().subscribe((result) => {
         if (result === 'yes') {
           this.authService.deleteActivity(activityId).subscribe((res) => {
+            let activity = res.activity.activityForDeleting;
+            let mark = 0 - res.activity.mark;
+            let id = res.activity.creator;
+            this.authService
+              .updateUserMark(activity, mark, id)
+              .subscribe((res) => {});
             if (res) {
               this.adminService
                 .getStudentActivityDetailByIndex(this.id, 'vac-gate')

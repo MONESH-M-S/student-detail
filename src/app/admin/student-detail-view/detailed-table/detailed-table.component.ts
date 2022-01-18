@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/student/auth.service';
 import { DialogComponent } from 'src/app/student/history/dialog/dialog.component';
 import { AdminService } from '../../admin.service';
@@ -60,6 +60,17 @@ export class DetailedTableComponent implements OnInit, OnDestroy {
       dialogRef.afterClosed().subscribe((result) => {
         if (result === 'yes') {
           this.authService.deleteActivity(activityId).subscribe((res) => {
+            let mark = 0 - res.activity.mark;
+            let id = res.activity.creator;
+            if (res.activity?.type === 'paper') {
+              this.authService
+                .updateUserMark('paper', mark, id)
+                .subscribe((res) => {});
+            } else if (res.activity?.type === 'project') {
+              this.authService
+                .updateUserMark('project', mark, id)
+                .subscribe((res) => {});
+            }
             if (res) {
               this.adminService
                 .getStudentActivityDetailByIndex(this.id, 'paper-project')

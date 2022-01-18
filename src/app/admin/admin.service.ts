@@ -71,7 +71,7 @@ export class AdminService {
       `${this.BACKEND_URL}admin/home/user/${id}`,
       id
     );
-  }
+  } 
 
   getStudentActivityTable(id: string) {
     return this.getStudentActivityDetail(id);

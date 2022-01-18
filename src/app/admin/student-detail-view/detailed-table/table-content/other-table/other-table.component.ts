@@ -9,7 +9,7 @@ import { ImageDialogComponent } from '../../image-dialog/image-dialog.component'
 @Component({
   selector: 'app-other-table',
   templateUrl: './other-table.component.html',
-  styleUrls: ['./other-table.component.scss']
+  styleUrls: ['./other-table.component.scss'],
 })
 export class OtherTableComponent implements OnInit {
   activityDetails = [];
@@ -37,13 +37,11 @@ export class OtherTableComponent implements OnInit {
       .subscribe(
         (res) => {
           this.activityDetails = res.activity;
-          console.log(this.activityDetails)
-          this.isLoading = false
+          this.isLoading = false;
         },
         (err) => {
           console.log(err);
           this.errMsg = err;
-          console.log(err)
           this.isLoading = false;
         }
       );
@@ -67,6 +65,12 @@ export class OtherTableComponent implements OnInit {
       dialogRef.afterClosed().subscribe((result) => {
         if (result === 'yes') {
           this.authService.deleteActivity(activityId).subscribe((res) => {
+            let activity = res.activity.activityForDeleting;
+            let mark = 0 - res.activity.mark;
+            let id = res.activity.creator;
+            this.authService
+              .updateUserMark(activity, mark, id)
+              .subscribe((res) => {});
             if (res) {
               this.adminService
                 .getStudentActivityDetailByIndex(this.id, 'other-ncc')

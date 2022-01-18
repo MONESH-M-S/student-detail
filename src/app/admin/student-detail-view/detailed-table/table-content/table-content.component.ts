@@ -36,12 +36,12 @@ export class TableContentComponent implements OnInit {
       .subscribe(
         (res) => {
           this.activityDetails = res.activity;
-          this.isLoading = false
+          this.isLoading = false;
         },
         (err) => {
           console.log(err);
           this.errMsg = err;
-          console.log(err)
+          console.log(err);
           this.isLoading = false;
         }
       );
@@ -65,6 +65,11 @@ export class TableContentComponent implements OnInit {
       dialogRef.afterClosed().subscribe((result) => {
         if (result === 'yes') {
           this.authService.deleteActivity(activityId).subscribe((res) => {
+            let mark = 0 - res.activity.mark;
+            let id = res.activity.creator;
+            this.authService
+              .updateUserMark('club', mark, id)
+              .subscribe((res) => {});
             if (res) {
               this.adminService
                 .getStudentActivityDetailByIndex(this.id, 'club')

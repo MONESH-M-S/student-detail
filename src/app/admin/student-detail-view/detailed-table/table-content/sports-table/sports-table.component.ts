@@ -66,6 +66,11 @@ export class SportsTableComponent implements OnInit {
       dialogRef.afterClosed().subscribe((result) => {
         if (result === 'yes') {
           this.authService.deleteActivity(activityId).subscribe((res) => {
+            let mark = 0 - res.activity.mark;
+            let id = res.activity.creator;
+            this.authService
+              .updateUserMark('sports', mark, id)
+              .subscribe((res) => {});
             if (res) {
               this.adminService
                 .getStudentActivityDetailByIndex(this.id, 'sports')
