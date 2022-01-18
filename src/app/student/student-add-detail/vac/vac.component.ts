@@ -67,6 +67,9 @@ export class VacComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
+    if (this.form.value.year == null) {
+      this.form.value.year = 0;
+    }
     const f = new FormData();
     f.append('event', this.form.value.event);
     f.append('venue', this.form.value.venue);

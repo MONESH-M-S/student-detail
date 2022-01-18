@@ -27,9 +27,15 @@ export class StudentAddDetailComponent implements OnInit {
     });
   }
 
-  onClick() {
+  onClickHistoryButton() {
     if (this.id) {
       this.router.navigate([`/student/detail-upload/${this.id}/history`]);
+    }
+  }
+
+  onClickMarkSplitupButton() {
+    if (this.id) {
+      this.router.navigate([`/student/detail-upload/${this.id}/mark-splitup`]);
     }
   }
 }

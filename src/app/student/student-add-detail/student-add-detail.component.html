@@ -4,10 +4,19 @@
       <div class="title">
         <h3>Hi {{ username | titlecase }}, Upload Your Details Here</h3>
         <button
-          mat-raised-button
+          mat-stroked-button
+          class="history"
+          color="accent"
+          (click)="onClickMarkSplitupButton()"
+          matTooltip="View Mark Splitup"
+        >
+          Mark-Splitup <mat-icon> insert_drive_file</mat-icon>
+        </button>
+        <button
+          mat-stroked-button
           class="history"
           color="primary"
-          (click)="onClick()"
+          (click)="onClickHistoryButton()"
           matTooltip="Show History"
         >
           History <mat-icon>update</mat-icon>

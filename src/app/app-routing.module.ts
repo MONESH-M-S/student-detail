@@ -49,6 +49,7 @@ const routes: Routes = [
   },
   { path: 'student-signup', component: SignupComponent },
   { path: 'student/detail-upload/:id', component: StudentAddDetailComponent },
+  { path: 'student/detail-upload/:id/mark-splitup', component: MarkSplitupComponent },
   { path: 'student/detail-upload/:id/history', component: HistoryComponent },
   { path: '**', component: StudentComponent },
 ];
